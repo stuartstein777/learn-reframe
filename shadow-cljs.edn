@@ -1,0 +1,15 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :dependencies
+ [[binaryage/devtools "0.9.10"]
+  [reagent "1.0.0"]]
+
+ :dev-http {8080 "public"}
+ :builds
+ {:app
+  {:target :browser
+   :modules {:main {:init-fn exfn.app/init}}}}}
