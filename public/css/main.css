@@ -1,7 +1,16 @@
+body{
+    background: darkgrey;
+}
 h1 {
-    color: red;
+    color: dodgerblue;
+    font-size: 35px;
 }
 
 li{
-    color: green;
+    color: saddlebrown;
+    font-size: 22px;
+}
+
+.bigp{
+    font-size: 35px;
 }
