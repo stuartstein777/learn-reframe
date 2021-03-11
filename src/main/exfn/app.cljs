@@ -1,6 +1,10 @@
 (ns exfn.app
   (:require [reagent.dom :as r]))
 
+(comment
+  (str "To switch to cljs repl")
+  (shadow/repl :your-build-id))
+
 (defn app
   []
   [:div
@@ -18,3 +22,4 @@
 (defn ^:export init []
   (js/console.log "Lets learn re-frame!")
   (start))
+
