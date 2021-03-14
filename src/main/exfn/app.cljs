@@ -77,54 +77,76 @@
          (filter #(= :Good (:Side %)))
          (cljs.pprint/print-table))))
 
-(defn sortable-table [table-key]
-  (let [s (reagent/atom {})]                                ;component local state
-    (fn [table-key]
-      (let [table @(rf/subscribe [:table table-key])
-            key (:sort-key @s)
-            direction (:sort-direction @s)
-            rows (cond->> (:rows table)
-                          key (sort-by #(nth % key))
-                          (= :ascending direction) reverse)
-            sorts [key direction]]
-        [:div
-         [:table
-          [:thead
-           [:tr
-            (for [[i h] (map vector (range) (:header table))]
-              [:th
-               {:style    {:line-height "1em"
-                           :cursor      :pointer}
-                :on-click #(cond
-                             (= [i :descending] sorts)
-                             (swap! s assoc
-                                    :sort-direction :ascending)
-                             (= [i :descending] sorts)
-                             (swap! s dissoc
-                                    :sort-direction :sort-key)
-                             :else
-                             (swap! s assoc
-                                    :sort-key i
-                                    :sort-direction :descending))}
-               h
-               [:div {:style {:display        :inline-block
-                              :vertical-align :middle
-                              :line-height    "1em"}}
-                [:div {:style {:color (if (= [i :descending] sorts)
-                                        :black
-                                        "#aaa")}}
+(rf/reg-event-db
+  :table-sort-by
+  (fn [db [_ key i dir]]
+    (update-in db [:tables key]
+               assoc :sort-key i :sort-direction dir)))
 
-                 [:i.fas.fa-sort-up]]
-                [:div {:style {:color (if (= [i :ascending] sorts)
-                                        :black
-                                        "#aaa")}}
-                 [:i.fas.fa-sort-down]]]])]]
-          [:tbody
-           (for [row rows]
-             [:tr
-              (for [v row]
-                [:td v])
-              [:td [:i.fas.fa-trash-alt]]])]]]))))
+(rf/reg-event-db
+  :table-remove-sort
+  (fn [db [_ key]]
+    (update-in db [:tables key]
+               dissoc :sort-key :sort-direction)))
+
+(rf/reg-sub
+  :table-sorted
+  (fn [[_ key] _]
+    (rf/subscribe [:table key]))
+  (fn [table]
+    (let [key (:sort-key table)
+          dir (:sort-direction table)
+          rows (cond->> (:rows table)
+                        key (sort-by #(nth % key))
+                        (= :ascending dir) reverse)]
+      (assoc table :rows rows))))
+
+;; effect. Has to return a map. reg-event-fx returns an event.
+(rf/reg-event-fx
+  :table-rotate-sort
+  (fn [{:keys [db]} [_ key i]]                              ; pull out the database.
+    (let [table (get-in db [:tables key])
+          sorts [(:sort-key table) (:sort-direction table)]]
+      {:dispatch (cond
+                   (= [i :ascending] sorts)
+                   [:table-remove-sort key]
+                   (= [i :descending] sorts)
+                   [:table-sort-by key i :ascending]
+                   :else
+                   [:table-sort-by key i :descending])})))
+
+(defn sortable-table [table-key]
+  (let [table @(rf/subscribe [:table-sorted table-key])
+        rows (:rows table)
+        sorts [(:sort-key table) (:sort-direction table)]]
+    [:div
+     [:table
+      [:thead
+       [:tr
+        (for [[i h] (map vector (range) (:header table))]
+          [:th
+           {:style    {:line-height "1em"
+                       :cursor      :pointer}
+            :on-click #(rf/dispatch [:table-rotate-sort table-key i])}
+           h
+           [:div {:style {:display        :inline-block
+                          :vertical-align :middle
+                          :line-height    "1em"}}
+            [:div {:style {:color (if (= [i :descending] sorts)
+                                    :black
+                                    "#aaa")}}
+
+             [:i.fas.fa-sort-up]]
+            [:div {:style {:color (if (= [i :ascending] sorts)
+                                    :black
+                                    "#aaa")}}
+             [:i.fas.fa-sort-down]]]])]]
+      [:tbody
+       (for [row rows]
+         [:tr
+          (for [v row]
+            [:td v])
+          [:td [:i.fas.fa-trash-alt {:on-click #(rf/dispatch [:delete-item ])}]]])]]]))
 
 (comment
   (let [e {:id 0 :name "Leia" :weapon "Blaster" :height 1.5 :side "Good"}]
