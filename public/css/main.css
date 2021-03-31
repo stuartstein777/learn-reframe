@@ -1,33 +1,21 @@
-body{
-    background: white;
-}
-h1 {
+h1{
     color: black;
-    font-size: 25px;
+    text-align: center;
 }
 
-li{
-    color: darkmagenta;
-    font-size: 20px;
+.initiator {
+    text-align: center;
 }
 
-table {
-    font-size: 16px;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-th {
-    text-align: left;
-    padding-top: 11px;
-    padding-left: 5px;
-    padding-bottom: 11px;
-    background-color: cornflowerblue;
-    color: white;
+.timer {
+    font-size: 7em;
 }
 
-td{
-    border: 1px solid #ddd;
-    text-align: left;
-    padding: 8px;
+.up, .down {
+    font-size: 3em;
+}
+
+.countdown {
+    font-size: 10em;
+    text-align: center;
 }
