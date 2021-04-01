@@ -42,6 +42,7 @@
  :reset
  (fn [db _]
    (-> db
+       (assoc :time-remaining 0)
        (assoc :countdown-visible false)
        (assoc :initiator-visible true))))
 
@@ -91,7 +92,7 @@
 
 (defn countdown []
   (let [time @(rf/subscribe [:time-remaining])
-        color (if (<= time 10) "#B21414" :black)]
+        color (if (<= time 10) :red :black)]
     [:div.countdown {:style {:visibility (if @(rf/subscribe [:countdown-visible]) :visible :hidden)}}
      [:div {:style {:color color}}
       (gstring/format "%02d" (if (nil? time) 0 time))]
@@ -111,7 +112,11 @@
 ;; Do this after the page has loaded.
 ;; Initialize the initial db state.
 (defonce initialize (rf/dispatch-sync [:initialize]))       ; dispatch the event which will create the initial state.)
-(defonce do-timer (js/setInterval dispatch-timer-event 1000))
+
+; move this to the event, get the do-timer returned from this and use it to cleaInterval on countdown finishing.
+; remove from this defonce.
+; is this a co-effect?
+(defonce do-timer (js/setInterval dispatch-timer-event 1000)) 
 
 (defn ^:dev/after-load start
   []
@@ -119,5 +124,4 @@
               (.getElementById js/document "app")))
 
 (defn ^:export init []
-  (js/console.log "Lets learn re-frame!")
   (start))
