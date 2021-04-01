@@ -2,8 +2,6 @@
   (:require [reagent.dom :as dom]
             [reagent.core :as reagent]
             [re-frame.core :as rf]
-            [clojure.string :as str]
-            [exfn.helpers :as helpers]
             [goog.string :as gstring]
             [goog.string.format]))
 
@@ -11,6 +9,7 @@
   (str "DEV NOTE.
         --------------------------------------------------------------------------------------------------")
   (str "Run with shadow using npx shadow-cljs watch app"
+       "If using INtelliJ and Cursive::"
        "Run repl after connecting in the browser."
        "To switch to cljs repl evaluate this, don't use cljs drop down in repl tab.")
   (shadow/repl :app)
@@ -20,62 +19,100 @@
   (str "If dependencies aren't being resolved run shadow-cljs pom and reload all from disk in File menu.
         --------------------------------------------------------------------------------------------------"))
 
+(defn dispatch-timer-event []
+  (rf/dispatch [:tick]))
+
 ;;-- Events --------------------------------------------------------------------------
 (rf/reg-event-db
-  :initialize
-  (fn [_ _]
-    {:time-remaining 0}))
-
-;(rf/reg-event-db
-;  :time-up
-;  (fn [db [_ _]]
-;    (update db :time-entered inc)))
+ :initialize
+ (fn [_ _]
+   {:time-remaining 0
+    :countdown-visible false
+    :initiator-visible true}))
 
 (rf/reg-event-db
-  :start
-  (fn [db [_ time]]
-    (assoc db :time-remaining time)))
+ :start
+ (fn [db [_ time]]
+   (-> db
+       (assoc :time-remaining time)
+       (assoc :countdown-visible true)
+       (assoc :initiator-visible false))))
+
+(rf/reg-event-db
+ :reset
+ (fn [db _]
+   (-> db
+       (assoc :countdown-visible false)
+       (assoc :initiator-visible true))))
+
+(rf/reg-event-db
+ :tick
+ (fn [db _]
+   (if (or (zero? (db :time-remaining)) (db :initiator-visible))
+     db
+     (update db :time-remaining dec))))
 
 ;; -- Subscriptions ------------------------------------------------------------------
 (rf/reg-sub
-  :time-remaining
-  (fn [db _]
-    (let [time (:time-remaining db)]
-      (gstring/format "%02d" (if (nil? time) 0 time)))))
+ :time-remaining
+ (fn [db _]
+   (:time-remaining db)))
+
+(rf/reg-sub
+ :initiator-visible
+ (fn [db _]
+   (db :initiator-visible)))
+
+(rf/reg-sub
+ :countdown-visible
+ (fn [db _]
+   (db :countdown-visible)))
 
 ;; -- Reagent Forms ------------------------------------------------------------------
 (defn countdown-initiator []
   (let [time-entered (reagent.core/atom 0)]
     (fn []
-      [:div.initiator
-       [:div.timer @time-entered]
-       [:div
-        [:button.btn.up
-         {:on-click #(swap! time-entered inc)}
-         [:i.fas.fa-chevron-up]]
-        [:button.btn.down
-         {:on-click #(if (> @time-entered 0)
-                       (swap! time-entered dec))}
-         [:i.fas.fa-chevron-down]]]
-       [:div
-        [:button.btn.btn-danger {:on-click #(rf/dispatch [:start @time-entered])
-                                 :style    {:margin-top 10}} "Start Countdown"]]])))
+      (when @(rf/subscribe [:initiator-visible])
+        [:div.initiator
+         (let [time @time-entered]
+           [:div.timer (gstring/format "%02d" (if (nil? time) 0 time))])
+         [:div
+          [:button.btn.up
+           {:on-click #(swap! time-entered inc)}
+           [:i.fas.fa-chevron-up]]
+          [:button.btn.down
+           {:on-click #(when (> @time-entered 0)
+                         (swap! time-entered dec))}
+           [:i.fas.fa-chevron-down]]]
+         [:div
+          [:button.btn.btn-danger.start
+           {:on-click #(rf/dispatch [:start @time-entered])}
+           "Start"]]]))))
 
-(defn selected-time []
-  [:div.countdown @(rf/subscribe [:time-remaining])])
+(defn countdown []
+  (let [time @(rf/subscribe [:time-remaining])
+        color (if (<= time 10) "#B21414" :black)]
+    [:div.countdown {:style {:visibility (if @(rf/subscribe [:countdown-visible]) :visible :hidden)}}
+     [:div {:style {:color color}}
+      (gstring/format "%02d" (if (nil? time) 0 time))]
+     [:div
+      [:button.btn.btn-secondary.reset
+       {:on-click #(rf/dispatch [:reset])}
+       "reset"]]]))
 
 ;; -- App -------------------------------------------------------------------------
 (defn app []
   [:div.container
    [:h1 "Countdown"]
    [countdown-initiator]
-   [selected-time]])
+   [countdown]])
 
 ;; -- After-Load --------------------------------------------------------------------
 ;; Do this after the page has loaded.
 ;; Initialize the initial db state.
 (defonce initialize (rf/dispatch-sync [:initialize]))       ; dispatch the event which will create the initial state.)
-;
+(defonce do-timer (js/setInterval dispatch-timer-event 1000))
+
 (defn ^:dev/after-load start
   []
   (dom/render [app]

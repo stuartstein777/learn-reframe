@@ -5,17 +5,28 @@ h1{
 
 .initiator {
     text-align: center;
+    margin: 0 auto;
 }
 
 .timer {
-    font-size: 7em;
+    font-size: 9em;
 }
 
 .up, .down {
-    font-size: 3em;
+    font-size: 5em;
 }
 
 .countdown {
-    font-size: 10em;
+    font-size: 20em;
     text-align: center;
+}
+
+.start {
+    margin-top: 10px;
+}
+
+.reset {
+    margin: 0 auto;
+    position: relative;
+    vertical-align: top;
 }
