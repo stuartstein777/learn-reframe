@@ -1,32 +1,10 @@
-h1{
-    color: black;
+.content {
     text-align: center;
+    margin:10px;
 }
 
-.initiator {
-    text-align: center;
-    margin: 0 auto;
-}
-
-.timer {
-    font-size: 9em;
-}
-
-.up, .down {
-    font-size: 5em;
-}
-
-.countdown {
-    font-size: 20em;
-    text-align: center;
-}
-
-.start {
-    margin-top: 10px;
-}
-
-.reset {
-    margin: 0 auto;
-    position: relative;
-    vertical-align: top;
+.canvas {
+    width: 500px;
+    height: 500px;
+    border: 2px black solid;
 }
