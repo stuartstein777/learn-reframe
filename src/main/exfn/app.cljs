@@ -15,22 +15,32 @@
    (update-in db [:points] conj xy)))
 
 ;; -- Subscriptions ------------------------------------------------------------------
-
+(rf/reg-sub
+ :points
+ (fn [db _]
+   (:points db)))
 
 ;; -- Reagent Forms ------------------------------------------------------------------
 (defn point-canvas []
   [:div.content
    [:canvas#point-canvas.canvas
-    {:on-click  (fn [e] (rf/dispatch [:point-click {:x (.. e -nativeEvent -offsetX) :y (.. e -nativeEvent -offsetY)}]))}]])
+    {:on-click  (fn [^js e] (rf/dispatch [:point-click {:x (.. e -nativeEvent -offsetX) :y (.. e -nativeEvent -offsetY)}]))}]])
 
 (defn buttons []
   [:div.content])
+
+(defn points []
+  (fn []
+    [:div
+     [:ul
+      (for [point @(rf/subscribe [:points])]
+        [:li (str "(" (:x point) "," (:y point) ")")])]]))
 
 ;; -- App -------------------------------------------------------------------------
 (defn app []
   [:div.container
    [point-canvas]
-   [buttons]])
+   [points]])
 
 (comment (rf/dispatch-sync [:initialize]))
 
