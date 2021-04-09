@@ -24,10 +24,7 @@
     {:on-click  (fn [e] (rf/dispatch [:point-click {:x (.. e -nativeEvent -offsetX) :y (.. e -nativeEvent -offsetY)}]))}]])
 
 (defn buttons []
-  [:div.content
-   [:buttton.btn.btn-primary {:style {:margin 5}} "Create Boundary"]
-   [:buttton.btn.btn-primary {:style {:margin 5}} "Create Point"]
-   [:buttton.btn.btn-primary {:style {:margin 5}} "Calculate"]])
+  [:div.content])
 
 ;; -- App -------------------------------------------------------------------------
 (defn app []
