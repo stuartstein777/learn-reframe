@@ -8,9 +8,9 @@
  :initialize
  (fn [_ _]
    {:points []
-    :drawing-boundary? false
+    :current-action :drawing-boundary
     :point {}
-    :selecting-point? false}))
+    :location "Requires Calculation"}))
 
 (defn clear-canvas [canvas ctx]
   (let [w (.-width canvas)
@@ -48,20 +48,17 @@
 (rf/reg-event-fx
  :point-click
  (fn [{:keys [db]} [_ xy]]
-   (cond (:drawing-boundary? db)
+   (cond (= :drawing-boundary (db :current-action))
          (let [updated-points (conj (db :points) xy)]
-           {:db            (assoc db :points updated-points)
+           {:db            (-> db
+                               (assoc :points updated-points)
+                               (assoc :location "Requires Calculation"))
             :draw-canvas [updated-points (:point db)]})
-         (:selecting-point? db)
-         {:db (assoc db :point xy)
+         (= :selecting-point (db :current-action))
+         {:db (-> db
+                  (assoc :point xy)
+                  (assoc :location "Requires Calculation"))
           :draw-canvas [(:points db) xy]})))
-
-(rf/reg-event-db
- :toggle-drawing-boundary
- (fn [db [_ drawing?]]
-   (-> db
-       (assoc :drawing-boundary? drawing?)
-       (assoc :boundary-button-label (if drawing? "Finish boundary" "Draw boundary")))))
 
 (rf/reg-event-fx
  :reset-boundary
@@ -69,15 +66,19 @@
    {:db
     (-> (:db cofx)
         (assoc :points [])
-        (assoc :drawing-boundary? true))
+        (assoc :current-action :drawing-boundary))
     :draw-canvas [[] (:point (:db cofx))]}))
 
 (rf/reg-event-db
- :select-point
- (fn [db _]
-   (-> db
-       (assoc :selecting-point? true)
-       (assoc :drawing-boundary? false))))
+ :calculate
+ (fn [{:keys [points point] :as db} _]
+   (assoc db :location "Requires Calculation")))
+
+(rf/reg-event-db
+ :toggle
+ (fn [{:keys [current-action] :as db} _]
+   (let [toggle {:drawing-boundary :selecting-point :selecting-point :drawing-boundary}]
+     (assoc db :current-action (toggle current-action)))))
 
 ;; -- Subscriptions ------------------------------------------------------------------
 (rf/reg-sub
@@ -91,9 +92,21 @@
    (:boundary-button-label db)))
 
 (rf/reg-sub
- :drawing-boundary?
+ :current-action
  (fn [db _]
-   (:drawing-boundary? db)))
+   (:current-action db)))
+
+(rf/reg-sub
+ :location
+ (fn [db _]
+   (:location db)))
+
+(rf/reg-sub
+ :toggle-label
+ (fn [{:keys [current-action]}]
+   (if (= current-action :drawing-boundary)
+     "Select Point"
+     "Draw Boundary")))
 
 ;; -- Reagent Forms ------------------------------------------------------------------
 (defn point-canvas []
@@ -102,22 +115,25 @@
     {:on-click  (fn [^js e] (rf/dispatch [:point-click {:x (.. e -nativeEvent -offsetX) :y (.. e -nativeEvent -offsetY)}]))
      :width 500
      :height 500}]
-   [:div.current-action (if @(rf/subscribe [:drawing-boundary?])
-                          "Drawing boundary"
-                          "Selecting Point")]])
+   [:div.current-action 
+    (let [current-action @(rf/subscribe [:current-action])]
+      (if (= current-action :drawing-boundary) "Drawing boundary" "Selecting Point"))]])
 
 (defn buttons []
   [:div.content
+   [:div
+    [:button.btn.btn-primary
+     {:on-click #(rf/dispatch [:toggle (not @(rf/subscribe [:current-action]))])}
+     @(rf/subscribe [:toggle-label])]
+    [:button.btn.btn-primary
+     {:style    {:margin 10}
+      :on-click #(rf/dispatch [:reset-boundary])}
+     "Reset boundary"]
+    #_[:button.btn.btn-primary
+     {:on-click #(rf/dispatch-sync [:select-point])}
+     "Select Point"]]
    [:button.btn.btn-primary
-    {:on-click #(rf/dispatch [:toggle-drawing-boundary (not @(rf/subscribe [:drawing-boundary?]))])}
-    "Draw Boundary"]
-   [:button.btn.btn-primary
-    {:style {:margin 10}
-     :on-click #(rf/dispatch [:reset-boundary])}
-    "Reset boundary"]
-   [:button.btn.btn-primary
-    {:on-click #(rf/dispatch-sync [:select-point])}
-    "Select Point"]])
+    "Calculate"]])
 
 (defn points []
   (fn []
@@ -127,12 +143,18 @@
         (for [[{:keys [x y]} key] (zipmap points (range (count points)))]
           [:li {:key key} (str "(" x "," y ")")]))]]))
 
+(defn location []
+  [:div.content.result
+   
+   @(rf/subscribe [:location])])
+
 ;; -- App -------------------------------------------------------------------------
 (defn app []
   [:div.container
    [point-canvas]
    [buttons]
-   [points] ])
+   [location]
+   [points]])
 
 (comment (rf/dispatch-sync [:initialize]))
 (comment (rf/dispatch-sync [:reset-boundary]))

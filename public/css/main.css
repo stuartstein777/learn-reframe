@@ -6,3 +6,8 @@
 .canvas {
     border: 2px black solid;
 }
+
+.result {
+    border: 2px black solid;
+    background-color:yellow;
+}
