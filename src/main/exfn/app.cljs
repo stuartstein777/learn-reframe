@@ -48,26 +48,29 @@
 (rf/reg-event-fx
  :point-click
  (fn [{:keys [db]} [_ xy]]
-   (cond (= :drawing-boundary (db :current-action))
+   (cond 
+     ; if user is drawing boundary...
+     (= :drawing-boundary (db :current-action))
          (let [updated-points (conj (db :points) xy)]
-           {:db            (-> db
-                               (assoc :points updated-points)
-                               (assoc :location "Requires Calculation"))
+           {:db          (-> db
+                             (assoc :points updated-points)
+                             (assoc :location "Requires Calculation"))
             :draw-canvas [updated-points (:point db)]})
-         (= :selecting-point (db :current-action))
-         {:db (-> db
-                  (assoc :point xy)
-                  (assoc :location "Requires Calculation"))
-          :draw-canvas [(:points db) xy]})))
+     
+     ; if user is selecting a point.
+     (= :selecting-point (db :current-action))
+     {:db          (-> db
+                       (assoc :point xy)
+                       (assoc :location "Requires Calculation"))
+      :draw-canvas [(:points db) xy]})))
 
 (rf/reg-event-fx
  :reset-boundary
  (fn [cofx _]
-   {:db
-    (-> (:db cofx)
-        (assoc :points [])
-        (assoc :current-action :drawing-boundary))
-    :draw-canvas [[] (:point (:db cofx))]}))
+   {:draw-canvas [[] (:point (:db cofx))]
+    :db          (-> (:db cofx)
+                     (assoc :points [])
+                     (assoc :current-action :drawing-boundary))}))
 
 (rf/reg-event-db
  :calculate
@@ -128,10 +131,7 @@
     [:button.btn.btn-primary
      {:style    {:margin 10}
       :on-click #(rf/dispatch [:reset-boundary])}
-     "Reset boundary"]
-    #_[:button.btn.btn-primary
-     {:on-click #(rf/dispatch-sync [:select-point])}
-     "Select Point"]]
+     "Reset boundary"]]
    [:button.btn.btn-primary
     "Calculate"]])
 
@@ -145,7 +145,6 @@
 
 (defn location []
   [:div.content.result
-   
    @(rf/subscribe [:location])])
 
 ;; -- App -------------------------------------------------------------------------
