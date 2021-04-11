@@ -14,7 +14,7 @@
 ;   - `alt+up` and `alt+down` traverse up and down the REPL command history
 ;      when the cursor is after the last contents at the prompt
 ;   - Clojure lines in stack traces are peekable and clickable.
-clj꞉shadow.user꞉> 
+clj꞉shadow.user꞉>  ; Use `alt+enter` to evaluate
 ; Creating cljs repl session...
 ; Connecting cljs repl: shadow-cljs...
 ;   The Calva Connection Log might have more connection progress information.
@@ -22,6 +22,158 @@ clj꞉shadow.user꞉> 
 ; TIPS: You can choose which REPL to use (clj or cljs):
 ;    *Calva: Toggle REPL connection*
 ;    (There is a button in the status bar for this)
+nil
+cljs꞉exfn.app꞉>  ; Use `alt+enter` to evaluate
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+:shadow.cljs/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; The exception was: 
+; Error: function exfn$app$points(){
+; return (function (){
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ul","ul",-1349521403),(function (){var iter__4529__auto__ = (function exfn$app$points_$_iter__31953(s__31954){
+return (new cljs.core.LazySeq(null,(function (){
+var s__31954__$1 = s__31954;
+while(true){
+var temp__5735__auto__ = cljs.core.seq(s__31954__$1);
+if(temp__5735__auto__){
+var s__31954__$2 = temp__5735__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__31954__$2)){
+var c__4527__auto__ = cljs.core.chunk_first(s__31954__$2);
+var size__4528__auto__ = cljs.core.count(c__4527__auto__);
+var b__31956 = cljs.core.chunk_buffer(size__4528__auto__);
+if((function (){var i__31955 = (0);
+while(true){
+if((i__31955 < size__4528__auto__)){
+var point = cljs.core._nth(c__4527__auto__,i__31955);
+cljs.core.chunk_append(b__31956,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),["(",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"x","x",2099068185).cljs$core$IFn$_invoke$arity$1(point)),",",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(point)),")"].join('')], null));
+
+var G__31965 = (i__31955 + (1));
+i__31955 = G__31965;
+continue;
+} else {
+return true;
+}
+break;
+}
+})()){
+return cljs.core.chunk_cons(cljs.core.chunk(b__31956),exfn$app$points_$_iter__31953(cljs.core.chunk_rest(s__31954__$2)));
+} else {
+return cljs.core.chunk_cons(cljs.core.chunk(b__31956),null);
+}
+} else {
+var point = cljs.core.first(s__31954__$2);
+return cljs.core.cons(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),["(",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"x","x",2099068185).cljs$core$IFn$_invoke$arity$1(point)),",",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(point)),")"].join('')], null),exfn$app$points_$_iter__31953(cljs.core.rest(s__31954__$2)));
+}
+} else {
+return null;
+}
+break;
+}
+}),null,null));
+});
+return iter__4529__auto__(cljs.core.deref(re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"points","points",-1486596883)], null))));
+})()], null)], null);
+});
+} is not ISeqable
+cljs꞉exfn.app꞉> 
+([:li "(227,443)"] [:li "(115,239)"] [:li "(105,192)"] [:li "(254,142)"])
+cljs꞉exfn.app꞉> 
+([:li {:key 0} "(227,443)"] [:li {:key 0} "(115,239)"] [:li {:key 0} "(105,192)"] [:li {:key 0} "(254,142)"])
+cljs꞉exfn.app꞉> 
+([:li {:key 0} "(,)"] [:li {:key 0} "(,)"] [:li {:key 0} "(,)"] [:li {:key 0} "(,)"])
+cljs꞉exfn.app꞉> 
+([:li {:key 0} "(,)"] [:li {:key 0} "(,)"] [:li {:key 0} "(,)"] [:li {:key 0} "(,)"])
+cljs꞉exfn.app꞉> 
+{{:x 227, :y 443} 0, {:x 115, :y 239} 1, {:x 105, :y 192} 2, {:x 254, :y 142} 3}
+cljs꞉exfn.app꞉> 
+nil
+; 
+; Execution error (Error) at (<cljs repl>:1).
+No protocol method ICounted.-count defined for type function: function exfn$app$points(){
+return (function (){
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ul","ul",-1349521403),(function (){var iter__4529__auto__ = (function exfn$app$points_$_iter__32001(s__32002){
+return (new cljs.core.LazySeq(null,(function (){
+var s__32002__$1 = s__32002;
+while(true){
+var temp__5735__auto__ = cljs.core.seq(s__32002__$1);
+if(temp__5735__auto__){
+var s__32002__$2 = temp__5735__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__32002__$2)){
+var c__4527__auto__ = cljs.core.chunk_first(s__32002__$2);
+var size__4528__auto__ = cljs.core.count(c__4527__auto__);
+var b__32004 = cljs.core.chunk_buffer(size__4528__auto__);
+if((function (){var i__32003 = (0);
+while(true){
+if((i__32003 < size__4528__auto__)){
+var point = cljs.core._nth(c__4527__auto__,i__32003);
+cljs.core.chunk_append(b__32004,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),["(",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"x","x",2099068185).cljs$core$IFn$_invoke$arity$1(point)),",",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(point)),")"].join('')], null));
+
+var G__32013 = (i__32003 + (1));
+i__32003 = G__32013;
+continue;
+} else {
+return true;
+}
+break;
+}
+})()){
+return cljs.core.chunk_cons(cljs.core.chunk(b__32004),exfn$app$points_$_iter__32001(cljs.core.chunk_rest(s__32002__$2)));
+} else {
+return cljs.core.chunk_cons(cljs.core.chunk(b__32004),null);
+}
+} else {
+var point = cljs.core.first(s__32002__$2);
+return cljs.core.cons(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),["(",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"x","x",2099068185).cljs$core$IFn$_invoke$arity$1(point)),",",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(point)),")"].join('')], null),exfn$app$points_$_iter__32001(cljs.core.rest(s__32002__$2)));
+}
+} else {
+return null;
+}
+break;
+}
+}),null,null));
+});
+return iter__4529__auto__(cljs.core.deref(re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"points","points",-1486596883)], null))));
+})()], null)], null);
+});
+}
+cljs꞉exfn.app꞉> 
+([{:x 227, :y 443} 0] [{:x 115, :y 239} 1] [{:x 105, :y 192} 2] [{:x 254, :y 142} 3])
+cljs꞉exfn.app꞉> 
+([:li {:key {:x 227, :y 443}} "(,)"] [:li {:key {:x 115, :y 239}} "(,)"] [:li {:key {:x 105, :y 192}} "(,)"] [:li {:key {:x 254, :y 142}} "(,)"])
+cljs꞉exfn.app꞉> 
+([nil nil {:x 227, :y 443}] [nil nil {:x 115, :y 239}] [nil nil {:x 105, :y 192}] [nil nil {:x 254, :y 142}])
+cljs꞉exfn.app꞉> 
+([227 443 0] [115 239 1] [105 192 2] [254 142 3])
+cljs꞉exfn.app꞉> 
+([:li {:key 0} "(227,443)"] [:li {:key 1} "(115,239)"] [:li {:key 2} "(105,192)"] [:li {:key 3} "(254,142)"])
+cljs꞉exfn.app꞉> 
+([:li {:key 0} "(227,443)"] [:li {:key 1} "(115,239)"] [:li {:key 2} "(105,192)"] [:li {:key 3} "(254,142)"])
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
 nil
 cljs꞉exfn.app꞉> 
 nil
