@@ -10,8 +10,7 @@
    {:points []
     :drawing-boundary? false
     :point {}
-    :selecting-point? false
-    :boundary-button-label "Draw Boundary"}))
+    :selecting-point? false}))
 
 (defn clear-canvas [canvas ctx]
   (let [w (.-width canvas)
@@ -22,8 +21,8 @@
     (.fill ctx)))
 
 (rf/reg-fx
- :update-canvas
- (fn [points]
+ :draw-canvas
+ (fn [[points {:keys [x y]}]]
    (let [canvas (.getElementById js/document "point-canvas")
          ctx (.getContext canvas "2d")]
      (.scale ctx 1 1)
@@ -34,22 +33,28 @@
      (dorun (map (fn [{:keys [x y]}]
                    (.arc ctx x y 1 0 (* 2 (.-PI js/Math)) 0)
                    (.lineTo ctx x y)) points))
-     (.stroke ctx))))
+     (.stroke ctx)
+     (.beginPath ctx)
+     (when (and (not (nil? x)) (not (nil? y)))
+       (.arc ctx x y 4 0 (* 2 (.-PI js/Math)) 0)
+       (.stroke ctx)))))
 
 (rf/reg-event-fx
  :update-canvas
  (fn [{:keys [db]} _]
    {:db db
-    :update-canvas (:points db)}))
-
+    :draw-canvas [(:points db) (:point db)]}))
 
 (rf/reg-event-fx
  :point-click
  (fn [{:keys [db]} [_ xy]]
-   (if (:drawing-boundary? db)
-     (let [updated-points (conj (db :points) xy)]
-       {:db          (assoc db :points updated-points)
-        :update-canvas updated-points}))))
+   (cond (:drawing-boundary? db)
+         (let [updated-points (conj (db :points) xy)]
+           {:db            (assoc db :points updated-points)
+            :draw-canvas [updated-points (:point db)]})
+         (:selecting-point? db)
+         {:db (assoc db :point xy)
+          :draw-canvas [(:points db) xy]})))
 
 (rf/reg-event-db
  :toggle-drawing-boundary
@@ -64,9 +69,15 @@
    {:db
     (-> (:db cofx)
         (assoc :points [])
-        (assoc :drawing-boundary? true)
-        (assoc :boundary-button-label "Finish boundary"))
-    :draw-points []}))
+        (assoc :drawing-boundary? true))
+    :draw-canvas [[] (:point (:db cofx))]}))
+
+(rf/reg-event-db
+ :select-point
+ (fn [db _]
+   (-> db
+       (assoc :selecting-point? true)
+       (assoc :drawing-boundary? false))))
 
 ;; -- Subscriptions ------------------------------------------------------------------
 (rf/reg-sub
@@ -90,19 +101,22 @@
    [:canvas#point-canvas.canvas
     {:on-click  (fn [^js e] (rf/dispatch [:point-click {:x (.. e -nativeEvent -offsetX) :y (.. e -nativeEvent -offsetY)}]))
      :width 500
-     :height 500}]])
+     :height 500}]
+   [:div.current-action (if @(rf/subscribe [:drawing-boundary?])
+                          "Drawing boundary"
+                          "Selecting Point")]])
 
 (defn buttons []
   [:div.content
    [:button.btn.btn-primary
     {:on-click #(rf/dispatch [:toggle-drawing-boundary (not @(rf/subscribe [:drawing-boundary?]))])}
-    @(rf/subscribe [:boundary-button-label])]
+    "Draw Boundary"]
    [:button.btn.btn-primary
     {:style {:margin 10}
      :on-click #(rf/dispatch [:reset-boundary])}
     "Reset boundary"]
    [:button.btn.btn-primary
-    {:on-click #(rf/dispatch-sync [:selecting-point?])}
+    {:on-click #(rf/dispatch-sync [:select-point])}
     "Select Point"]])
 
 (defn points []
@@ -122,7 +136,7 @@
 
 (comment (rf/dispatch-sync [:initialize]))
 (comment (rf/dispatch-sync [:reset-boundary]))
-(rf/dispatch-sync [:update-canvas])
+(comment (rf/dispatch-sync [:update-canvas]))
 
 ;; -- After-Load --------------------------------------------------------------------
 ;; Do this after the page has loaded.
@@ -136,10 +150,3 @@
   (start))
 
 (defonce initialize (rf/dispatch-sync [:initialize]))       ; dispatch the event which will create the initial state.)
-
-(let [points [{:x 227 :y 443}
-              {:x 115 :y 239}
-              {:x 105 :y 192}
-              {:x 254 :y 142}]]
-  (for [[{:keys [x y]} key] (zipmap points (range (count points)))]
-    [:li {:key key}(str "(" x "," y ")")]))

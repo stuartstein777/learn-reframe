@@ -180,3 +180,68 @@ nil
 cljs꞉exfn.app꞉> 
 nil
 cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+#'exfn.app/initialize
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+; 
+; Execution error (TypeError) at (<cljs repl>:1).
+Cannot read property 'getContext' of null
+cljs꞉exfn.app꞉> 
+nil
+; 
+; Execution error (TypeError) at (<cljs repl>:1).
+Cannot read property 'getContext' of null
+cljs꞉exfn.app꞉> 
+[nil nil]
+cljs꞉exfn.app꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+ Use of undeclared Var exfn.app/here
+--------------------------------------------------------------------------------
+
+cljs꞉exfn.app꞉> 
+here
+
+nil
+cljs꞉exfn.app꞉> 
+"here"
+
+nil
+cljs꞉exfn.app꞉> 
+"here"
+
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
