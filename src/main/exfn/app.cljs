@@ -10,7 +10,7 @@
      (* (- (:x p2) (:x r))
         (- (:y p1) (:y r)))))
 
-(defn calculate-w [r v1 v2]
+(defn calculate-w [r [v1 v2]]
   (if (<= (:y v1) (:y r))
     (if (and (> (:y v2) (:y r)) (pos? (det r v1 v2)))
       1 0)
@@ -19,12 +19,9 @@
 
 (defn is-point-outside? [point points]
   (let [closed-points (conj points (first points))]
-    (->> (map (partial calculate-w point) closed-points (rest closed-points))
+    (->> (map (partial calculate-w point) (partition 2 1 closed-points))
          (reduce +)
          (zero?))))
-
-(let [xs [1 2 3 4 5 6 7 8 9 10]]
-  (map (fn [[a b]] (+ a b)) (partition-all 2 1 xs)))
 
 ;;-- Events and Effects --------------------------------------------------------------------------
 (rf/reg-event-db
@@ -46,6 +43,34 @@
     (.rect ctx 0 0  w h)
     (.fill ctx)))
 
+(defn draw-guides [ctx points x y]
+  (.beginPath ctx)
+  (.lineTo ctx 0 y)
+  (.lineTo ctx 500 y)
+  (set! (.-lineWidth ctx) 1.0)
+  (set! (.-strokeStyle ctx) "green")
+  (.stroke ctx))
+
+(defn draw-selected-point [ctx x y]
+  (when (and (not (nil? x)) (not (nil? y)))
+    (.beginPath ctx)
+    (set! (.-strokeStyle ctx) "black")
+    (set! (.-fillStyle ctx) "blue")
+    (.arc ctx x y 4 0 (* 2 (.-PI js/Math)) 0)
+    (.stroke ctx)
+    (.fill ctx)))
+
+(defn draw-boundary [ctx points should-fill]
+  (set! (.-lineWidth ctx) 2.0)
+  (set! (.-strokeStyle ctx) "black")
+  (.beginPath ctx)
+  (when should-fill
+    (set! (.-fillStyle ctx) "yellow"))
+  (dorun (map (fn [{:keys [x y]}]
+                (.lineTo ctx x y)) points))
+  (.stroke ctx)
+  (.fill ctx))
+
 (rf/reg-fx
  :draw-canvas
  (fn [[points {:keys [x y]} should-fill]]
@@ -53,23 +78,9 @@
          ctx (.getContext canvas "2d")]
      (.scale ctx 1 1)
      (clear-canvas canvas ctx)
-     (set! (.-lineWidth ctx) 2.0)
-     (set! (.-strokeStyle ctx) "black")
-     (.beginPath ctx)
-     (when should-fill
-       (set! (.-fillStyle ctx) "yellow"))
-     (dorun (map (fn [{:keys [x y]}]
-                   (.lineTo ctx x y)) points))
-     (.stroke ctx)
-     (.fill ctx)
-    ; draw the selected point.
-     (when (and (not (nil? x)) (not (nil? y)))
-       (.beginPath ctx)
-       (set! (.-strokeStyle ctx) "black")
-       (set! (.-fillStyle ctx) "blue")
-       (.arc ctx x y 4 0 (* 2 (.-PI js/Math)) 0)
-       (.stroke ctx)
-       (.fill ctx)))))
+     (draw-boundary ctx points should-fill)
+     (draw-selected-point ctx x y)
+     (draw-guides ctx points x y))))
 
 (rf/reg-event-fx
  :update-canvas
@@ -240,7 +251,8 @@
 (comment (rf/dispatch-sync [:initialize]))
 (comment (rf/dispatch-sync [:reset-boundary]))
 (comment (rf/dispatch [:update-canvas]))
-(rf/dispatch [:update-canvas]);only here for debugging / dev / testing.
+(rf/dispatch [:update-canvas])
+;only here for debugging / dev / testing.
 
 ;; -- After-Load --------------------------------------------------------------------
 ;; Do this after the page has loaded.

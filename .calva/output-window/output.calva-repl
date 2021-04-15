@@ -318,3 +318,50 @@ cljs꞉exfn.app꞉> 
 cljs꞉exfn.app꞉> 
 (3 5 7 9 11 13 15 17 19 10)
 cljs꞉exfn.app꞉> 
+(3 5 7 9 11 13 15 17 19 10)
+cljs꞉exfn.app꞉> 
+([1 2] [2 3] [3 4] [4 5] [5 6] [6 7] [7 8] [8 9] [9 10] [10 nil])
+cljs꞉exfn.app꞉> 
+([1 2] [2 3] [3 4] [4 5] [5 6] [6 7] [7 8] [8 9] [9 10] [10 nil])
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+nil
+cljs꞉exfn.app꞉> 
+([1 2] [2 3] [3 4] [4 5] [5 6] [6 7] [7 8] [8 9] [9 10] [10 nil])
+cljs꞉exfn.app꞉> 
+:shadow.cljs/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; The exception was: 
+; Error: nth not supported on this type function Number() { [native code] }
+cljs꞉exfn.app꞉> 
+:shadow.cljs/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; The exception was: 
+; Error: nth not supported on this type function Number() { [native code] }
+cljs꞉exfn.app꞉> 
+([1 2] [2 3] [3 4] [4 5] [5 6] [6 7] [7 8] [8 9] [9 10] [10 nil])
+cljs꞉exfn.app꞉> 
+:shadow.cljs/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; The exception was: 
+; Error: nth not supported on this type function Number() { [native code] }
+cljs꞉exfn.app꞉> 
+([1 2] [2 3] [3 4] [4 5] [5 6] [6 7] [7 8] [8 9] [9 10])
+cljs꞉exfn.app꞉> 
+([1 2] [2 3] [3 4] [4 5] [5 6] [6 7] [7 8] [8 9] [9 10])
+cljs꞉exfn.app꞉> 
+([1 2] [2 3] [3 4] [4 5] [5 6] [6 7] [7 8] [8 9] [9 10] [10 nil])
+cljs꞉exfn.app꞉> 
+([1 2] [2 3] [3 4] [4 5] [5 6] [6 7] [7 8] [8 9] [9 10])
+cljs꞉exfn.app꞉> 
+([1 2] [2 3] [3 4] [4 5] [5 6] [6 7] [7 8] [8 9] [9 10])
+cljs꞉exfn.app꞉> 
+((1 2) (2 3) (3 4) (4 5) (5 6))
+cljs꞉exfn.app꞉> 
+6
+cljs꞉exfn.app꞉> 
+(6 7 8 9 10)
+cljs꞉exfn.app꞉> 
+40
+cljs꞉exfn.app꞉> 
