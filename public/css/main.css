@@ -1,3 +1,6 @@
+body{
+    background-color:lightsteelblue;
+}
 .content {
     text-align: center;
     margin:10px;
@@ -10,4 +13,8 @@
 .result {
     border: 2px black solid;
     background-color:yellow;
+}
+
+.btn{
+    margin: 10px;
 }

@@ -10,20 +10,21 @@
      (* (- (:x p2) (:x r))
         (- (:y p1) (:y r)))))
 
-(det {:x 6 :y 6} {:x 5 :y 2} {:x 5 :y 10})
-
 (defn calculate-w [r v1 v2]
   (if (<= (:y v1) (:y r))
-    (if (and (> (:y v2) (:y r)) (> (det r v1 v2) 0))
+    (if (and (> (:y v2) (:y r)) (pos? (det r v1 v2)))
       1 0)
-    (if (and (<= (:y v2) (:y r)) (< (det r v1 v2) 0))
+    (if (and (<= (:y v2) (:y r)) (neg? (det r v1 v2)))
       -1 0)))
 
 (defn is-point-outside? [point points]
-  (let [closed-points (conj points (first points))
-        w (->> (map (partial calculate-w point) closed-points (rest closed-points))
-               (reduce + 0))]
-    (zero? w)))
+  (let [closed-points (conj points (first points))]
+    (->> (map (partial calculate-w point) closed-points (rest closed-points))
+         (reduce +)
+         (zero?))))
+
+(let [xs [1 2 3 4 5 6 7 8 9 10]]
+  (map (fn [[a b]] (+ a b)) (partition-all 2 1 xs)))
 
 ;;-- Events and Effects --------------------------------------------------------------------------
 (rf/reg-event-db
@@ -32,7 +33,10 @@
    {:points []
     :current-action :drawing-boundary
     :point {}
-    :location "Requires Calculation"}))
+    :should-fill false
+    :location "Requires Calculation"
+    :undo-stack []
+    :redo-stack []}))
 
 (defn clear-canvas [canvas ctx]
   (let [w (.-width canvas)
@@ -44,32 +48,34 @@
 
 (rf/reg-fx
  :draw-canvas
- (fn [[points {:keys [x y]}]]
+ (fn [[points {:keys [x y]} should-fill]]
    (let [canvas (.getElementById js/document "point-canvas")
          ctx (.getContext canvas "2d")]
      (.scale ctx 1 1)
      (clear-canvas canvas ctx)
-     (.beginPath ctx)
      (set! (.-lineWidth ctx) 2.0)
      (set! (.-strokeStyle ctx) "black")
+     (.beginPath ctx)
+     (when should-fill
+       (set! (.-fillStyle ctx) "yellow"))
      (dorun (map (fn [{:keys [x y]}]
-                   (.arc ctx x y 0.0 0 (* 2 (.-PI js/Math)) 0)
                    (.lineTo ctx x y)) points))
      (.stroke ctx)
      (.fill ctx)
-     (.beginPath ctx)
+    ; draw the selected point.
      (when (and (not (nil? x)) (not (nil? y)))
-       (.arc ctx x y 4 0 (* 2 (.-PI js/Math)) 0)
+       (.beginPath ctx)
        (set! (.-strokeStyle ctx) "black")
-       (.stroke ctx)
        (set! (.-fillStyle ctx) "blue")
+       (.arc ctx x y 4 0 (* 2 (.-PI js/Math)) 0)
+       (.stroke ctx)
        (.fill ctx)))))
 
 (rf/reg-event-fx
  :update-canvas
  (fn [{:keys [db]} _]
    {:db db
-    :draw-canvas [(:points db) (:point db)]}))
+    :draw-canvas [(:points db) (:point db) (:should-fill db)]}))
 
 (rf/reg-event-fx
  :point-click
@@ -80,22 +86,27 @@
      (let [updated-points (conj (db :points) xy)]
        {:db          (-> db
                          (assoc :points updated-points)
-                         (assoc :location "Requires Calculation"))
-        :draw-canvas [updated-points (:point db)]})
+                         (assoc :location "Requires Calculation")
+                         (assoc :redo-stack [])
+                         (update :undo-stack conj (db :points)))
+        :draw-canvas [updated-points (:point db) (db :should-fill)]})
 
      ; if user is selecting a point.
      (= :selecting-point (db :current-action))
      {:db          (-> db
                        (assoc :point xy)
                        (assoc :location "Requires Calculation"))
-      :draw-canvas [(:points db) xy]})))
+      :draw-canvas [(:points db) xy (db :should-fill)]})))
+
+
 
 (rf/reg-event-fx
  :reset-boundary
- (fn [cofx _]
-   {:draw-canvas [[] (:point (:db cofx))]
-    :db          (-> (:db cofx)
+ (fn [{:keys [db]} _]
+   {:draw-canvas [[] (:point db) (:should-fill db)]
+    :db          (-> db
                      (assoc :points [])
+                     (update :undo-stack conj (db :points))
                      (assoc :current-action :drawing-boundary))}))
 
 (rf/reg-event-db
@@ -110,6 +121,42 @@
  (fn [{:keys [current-action] :as db} _]
    (let [toggle {:drawing-boundary :selecting-point :selecting-point :drawing-boundary}]
      (assoc db :current-action (toggle current-action)))))
+
+(rf/reg-event-fx
+ :toggle-fill
+ (fn [{:keys [db]} _]
+   (let [should-fill? (not (:should-fill db))]
+     {:db (assoc db :should-fill should-fill?)
+      :draw-canvas [(:points db) (:point db) should-fill?]})))
+
+;; on undo, we need to make points equal to result of popping undo-stack
+;; make undo-stack equal to popping undo-stack
+;; push points tp redo-stack
+(rf/reg-event-fx
+  :undo
+  (fn [{:keys [db]} _]
+    (if (empty? (:undo-stack db))
+      {:db db}
+      (let [last-dropped (vec (butlast (db :points)))]
+        {:db          (-> db
+                          (assoc :points last-dropped)
+                          (update :undo-stack pop)
+                          (update :redo-stack conj (db :points)))
+         :draw-canvas [last-dropped (:point db) (:should-fill db)]}))))
+
+(rf/reg-event-fx
+ :redo
+ (fn [{:keys [db]} _]
+   (if (empty? (:redo-stack db))
+     {:db db}
+     (let [new-points (peek (:redo-stack db))
+           new-undo (:points db)
+           new-redo (pop (:redo-stack db))]
+       {:db          (-> db
+                         (assoc :points new-points)
+                         (assoc :redo-stack new-redo)
+                         (assoc :undo-stack new-undo))
+        :draw-canvas [new-points (:point db) (:should-fill db)]}))))
 
 ;; -- Subscriptions ------------------------------------------------------------------
 (rf/reg-sub
@@ -148,7 +195,7 @@
 (defn point-canvas []
   [:div.content
    [:canvas#point-canvas.canvas
-    {:on-click  (fn [^js e] (rf/dispatch [:point-click {:x (.. e -nativeEvent -offsetX) :y (.. e -nativeEvent -offsetY)}]))
+    {:on-click  (fn [^js e] (rf/dispatch-sync [:point-click {:x (.. e -nativeEvent -offsetX) :y (.. e -nativeEvent -offsetY)}]))
      :width 500
      :height 500}]
    [:div.current-action
@@ -164,20 +211,20 @@
      {:on-click #(rf/dispatch [:toggle (not @(rf/subscribe [:current-action]))])}
      @(rf/subscribe [:toggle-label])]
     [:button.btn.btn-danger
-     {:style    {:margin 10}
-      :on-click #(rf/dispatch [:reset-boundary])}
+     {:on-click #(rf/dispatch [:reset-boundary])}
      "Reset boundary"]]
-   [:button.btn.btn-info
+   [:button.btn.btn-success
     {:on-click #(rf/dispatch [:calculate])}
-    "Calculate"]])
-
-(defn points []
-  (fn []
-    [:div
-     [:ul
-      (let [points @(rf/subscribe [:points])]
-        (for [[{:keys [x y]} key] (zipmap points (range (count points)))]
-          [:li {:key key} (str "(" x "," y ")")]))]]))
+    "Calculate"]
+   [:button.btn.btn-primary
+    {:on-click #(rf/dispatch [:toggle-fill])}
+    "Toggle fill"]
+   [:button.btn.btn-primary
+    {:on-click #(rf/dispatch [:undo])}
+    "Undo"]
+    [:button.btn.btn-primary
+    {:on-click #(rf/dispatch [:redo])}
+    "Redo"]])
 
 (defn location []
   [:div.content.result
@@ -188,9 +235,7 @@
   [:div.container
    [point-canvas]
    [location]
-   [buttons]
-   [points]])
-
+   [buttons]])
 
 (comment (rf/dispatch-sync [:initialize]))
 (comment (rf/dispatch-sync [:reset-boundary]))
@@ -208,94 +253,4 @@
 (defn ^:export init []
   (start))
 
-(defonce initialize (rf/dispatch-sync [:initialize]))       ; dispatch the event which will create the initial state.)
-
-
-
-(comment
-  (defn de
-    "Prints the vector part of (let [{:keys []} m]) map destructuring for you.
-  Use at the REPL, copy the output, and use in your code.
-  Given a map m returns the full recursive destructuring form ready for use in regular Clojure (let ...).
-  If a specific key at a specific level of the map cannot be destructured, the destructuring stops there for that key.
-  An INFO message will be printed with the specific key that cannot be destructured.
-  If it encounters a vector which contains maps, it will destructure the first map in the vector.
-  Supported map keys:
-   - keywords
-   - qualified keywords
-   - symbols
-   - qualified symbols
-   - strings (not all string keys can be destructured, avoid strings)
-  Usage:
-  ```
-  (def m  {:name     :alice
-           :favorite {:music   [{:genre :rock}
-                                {:genre :trance}]
-                      :friends #{:bob :clara}}})
-  (de m)
-  ;=>
-  [{:keys [name favorite]} m
-   {:keys [music friends]} favorite
-   [{:keys [genre]}] music]
-  ```
-  "
-    ([m]
-     (de m {:?symbol nil}))
-    ([m {:keys [?symbol locals-index] :or {locals-index (atom {})}}]
-     {:pre [(map? m)]}
-     (transduce
-      (map identity)
-      (completing
-       (fn [{:keys [locals-index] :as accum} [a-key a-val]]
-         (let [[?via {:keys [local-to-index new-local keys-destruct]}] (key->?local a-key locals-index)
-               ?destructure-more (val->?destructure-more a-val)
-               accum'            (condp = ?via
-                              ;choose type of destructuring
-
-                                   :via-dest-vec
-                              ;{:keys [] :strs []} style
-                                   (update-in accum [:left-side keys-destruct]
-                                              (fn [?v] (conjv ?v new-local)))
-
-                                   :via-orig-key
-                              ;{xyz :xyz} style
-                                   (update accum :left-side
-                                           (fn [m] (assoc m new-local (prepare-a-key a-key))))
-
-                              ;else, no change
-                                   accum)]
-
-
-           (when local-to-index
-             (swap! locals-index update local-to-index (fnil inc 1)))
-
-      ;print message if a key cannot be destructured
-           (when (nil? ?via)
-             (println "INFO ::: Map key" (str "'" a-key "'") "does not support destructuring"))
-
-
-           (if (and ?via ?destructure-more)
-       ;'schedule' further destructuring
-             (update-in accum' [:destructure-more] conj [new-local ?destructure-more])
-       ;else
-             (do
-               (timbre/info "READY")
-               accum'))))
-
-       (fn [{:keys [left-side destructure-more locals-index] :as accum-final}]
-         (let [left-side' (if (:map-in-vector? (meta m))
-                            [left-side]
-                            left-side)
-               right-side (or ?symbol (symbol "m"))
-               output'    [left-side' right-side]
-               ret        (reduce
-                           (fn [-output' [a-symbol m]]
-                             (apply conj -output'
-                                    (trampoline de m {:?symbol a-symbol :locals-index locals-index})))
-                           output'
-                           destructure-more)]
-
-           ret)))
-   ;reduce accum "state"
-      {:left-side {} :destructure-more [] :locals-index locals-index}
-      m))))
+(defonce initialize (rf/dispatch-sync [:initialize]))       ; dispatch the event which will create the initial state. 

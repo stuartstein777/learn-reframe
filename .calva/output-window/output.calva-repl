@@ -28,1801 +28,293 @@ nil
 cljs꞉exfn.app꞉> 
 nil
 cljs꞉exfn.app꞉> 
-nil
+#object[G__29388]
 cljs꞉exfn.app꞉> 
-nil
+11
 cljs꞉exfn.app꞉> 
-:shadow.cljs/print-error!
-; The result object failed to print. It is available via *1 if you want to interact with it.
-; The exception was: 
-; Error: function exfn$app$points(){
-; return (function (){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ul","ul",-1349521403),(function (){var iter__4529__auto__ = (function exfn$app$points_$_iter__31953(s__31954){
-return (new cljs.core.LazySeq(null,(function (){
-var s__31954__$1 = s__31954;
-while(true){
-var temp__5735__auto__ = cljs.core.seq(s__31954__$1);
-if(temp__5735__auto__){
-var s__31954__$2 = temp__5735__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__31954__$2)){
-var c__4527__auto__ = cljs.core.chunk_first(s__31954__$2);
-var size__4528__auto__ = cljs.core.count(c__4527__auto__);
-var b__31956 = cljs.core.chunk_buffer(size__4528__auto__);
-if((function (){var i__31955 = (0);
-while(true){
-if((i__31955 < size__4528__auto__)){
-var point = cljs.core._nth(c__4527__auto__,i__31955);
-cljs.core.chunk_append(b__31956,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),["(",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"x","x",2099068185).cljs$core$IFn$_invoke$arity$1(point)),",",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(point)),")"].join('')], null));
-
-var G__31965 = (i__31955 + (1));
-i__31955 = G__31965;
-continue;
-} else {
-return true;
-}
-break;
-}
-})()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__31956),exfn$app$points_$_iter__31953(cljs.core.chunk_rest(s__31954__$2)));
-} else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__31956),null);
-}
-} else {
-var point = cljs.core.first(s__31954__$2);
-return cljs.core.cons(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),["(",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"x","x",2099068185).cljs$core$IFn$_invoke$arity$1(point)),",",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(point)),")"].join('')], null),exfn$app$points_$_iter__31953(cljs.core.rest(s__31954__$2)));
-}
-} else {
-return null;
-}
-break;
-}
-}),null,null));
-});
-return iter__4529__auto__(cljs.core.deref(re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"points","points",-1486596883)], null))));
-})()], null)], null);
-});
-} is not ISeqable
-cljs꞉exfn.app꞉> 
-([:li "(227,443)"] [:li "(115,239)"] [:li "(105,192)"] [:li "(254,142)"])
-cljs꞉exfn.app꞉> 
-([:li {:key 0} "(227,443)"] [:li {:key 0} "(115,239)"] [:li {:key 0} "(105,192)"] [:li {:key 0} "(254,142)"])
-cljs꞉exfn.app꞉> 
-([:li {:key 0} "(,)"] [:li {:key 0} "(,)"] [:li {:key 0} "(,)"] [:li {:key 0} "(,)"])
-cljs꞉exfn.app꞉> 
-([:li {:key 0} "(,)"] [:li {:key 0} "(,)"] [:li {:key 0} "(,)"] [:li {:key 0} "(,)"])
-cljs꞉exfn.app꞉> 
-{{:x 227, :y 443} 0, {:x 115, :y 239} 1, {:x 105, :y 192} 2, {:x 254, :y 142} 3}
+(8 11 14 17 20)
 cljs꞉exfn.app꞉> 
 nil
 ; 
 ; Execution error (Error) at (<cljs repl>:1).
-No protocol method ICounted.-count defined for type function: function exfn$app$points(){
-return (function (){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ul","ul",-1349521403),(function (){var iter__4529__auto__ = (function exfn$app$points_$_iter__32001(s__32002){
-return (new cljs.core.LazySeq(null,(function (){
-var s__32002__$1 = s__32002;
-while(true){
-var temp__5735__auto__ = cljs.core.seq(s__32002__$1);
-if(temp__5735__auto__){
-var s__32002__$2 = temp__5735__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__32002__$2)){
-var c__4527__auto__ = cljs.core.chunk_first(s__32002__$2);
-var size__4528__auto__ = cljs.core.count(c__4527__auto__);
-var b__32004 = cljs.core.chunk_buffer(size__4528__auto__);
-if((function (){var i__32003 = (0);
-while(true){
-if((i__32003 < size__4528__auto__)){
-var point = cljs.core._nth(c__4527__auto__,i__32003);
-cljs.core.chunk_append(b__32004,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),["(",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"x","x",2099068185).cljs$core$IFn$_invoke$arity$1(point)),",",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(point)),")"].join('')], null));
+function cljs$core$_PLUS_(var_args){
+var G__25638 = arguments.length;
+switch (G__25638) {
+case 0:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$0();
 
-var G__32013 = (i__32003 + (1));
-i__32003 = G__32013;
+break;
+case 1:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
+
+break;
+case 2:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
+
+break;
+default:
+var args_arr__4757__auto__ = [];
+var len__4736__auto___28815 = arguments.length;
+var i__4737__auto___28816 = (0);
+while(true){
+if((i__4737__auto___28816 < len__4736__auto___28815)){
+args_arr__4757__auto__.push((arguments[i__4737__auto___28816]));
+
+var G__28817 = (i__4737__auto___28816 + (1));
+i__4737__auto___28816 = G__28817;
 continue;
 } else {
-return true;
 }
 break;
 }
-})()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__32004),exfn$app$points_$_iter__32001(cljs.core.chunk_rest(s__32002__$2)));
-} else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__32004),null);
+
+var argseq__4758__auto__ = (new cljs.core.IndexedSeq(args_arr__4757__auto__.slice((2)),(0),null));
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),(arguments[(1)]),argseq__4758__auto__);
+
 }
+} is not ISeqable
+cljs꞉exfn.app꞉> 
+nil
+; 
+; Execution error (Error) at (<cljs repl>:1).
+function cljs$core$_PLUS_(var_args){
+var G__25638 = arguments.length;
+switch (G__25638) {
+case 0:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$0();
+
+break;
+case 1:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
+
+break;
+case 2:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
+
+break;
+default:
+var args_arr__4757__auto__ = [];
+var len__4736__auto___28815 = arguments.length;
+var i__4737__auto___28816 = (0);
+while(true){
+if((i__4737__auto___28816 < len__4736__auto___28815)){
+args_arr__4757__auto__.push((arguments[i__4737__auto___28816]));
+
+var G__28817 = (i__4737__auto___28816 + (1));
+i__4737__auto___28816 = G__28817;
+continue;
 } else {
-var point = cljs.core.first(s__32002__$2);
-return cljs.core.cons(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),["(",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"x","x",2099068185).cljs$core$IFn$_invoke$arity$1(point)),",",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(point)),")"].join('')], null),exfn$app$points_$_iter__32001(cljs.core.rest(s__32002__$2)));
-}
-} else {
-return null;
 }
 break;
 }
-}),null,null));
-});
-return iter__4529__auto__(cljs.core.deref(re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"points","points",-1486596883)], null))));
-})()], null)], null);
-});
+
+var argseq__4758__auto__ = (new cljs.core.IndexedSeq(args_arr__4757__auto__.slice((2)),(0),null));
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),(arguments[(1)]),argseq__4758__auto__);
+
 }
-cljs꞉exfn.app꞉> 
-([{:x 227, :y 443} 0] [{:x 115, :y 239} 1] [{:x 105, :y 192} 2] [{:x 254, :y 142} 3])
-cljs꞉exfn.app꞉> 
-([:li {:key {:x 227, :y 443}} "(,)"] [:li {:key {:x 115, :y 239}} "(,)"] [:li {:key {:x 105, :y 192}} "(,)"] [:li {:key {:x 254, :y 142}} "(,)"])
-cljs꞉exfn.app꞉> 
-([nil nil {:x 227, :y 443}] [nil nil {:x 115, :y 239}] [nil nil {:x 105, :y 192}] [nil nil {:x 254, :y 142}])
-cljs꞉exfn.app꞉> 
-([227 443 0] [115 239 1] [105 192 2] [254 142 3])
-cljs꞉exfn.app꞉> 
-([:li {:key 0} "(227,443)"] [:li {:key 1} "(115,239)"] [:li {:key 2} "(105,192)"] [:li {:key 3} "(254,142)"])
-cljs꞉exfn.app꞉> 
-([:li {:key 0} "(227,443)"] [:li {:key 1} "(115,239)"] [:li {:key 2} "(105,192)"] [:li {:key 3} "(254,142)"])
+} is not ISeqable
 cljs꞉exfn.app꞉> 
 nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-#'exfn.app/initialize
-cljs꞉exfn.app꞉> 
-nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:15
+ Use of undeclared Var exfn.app/f
+--------------------------------------------------------------------------------
+
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:20
+ Use of undeclared Var exfn.app/xs
+--------------------------------------------------------------------------------
+
 cljs꞉exfn.app꞉> 
 nil
 ; 
-; Execution error (TypeError) at (<cljs repl>:1).
-Cannot read property 'getContext' of null
+; Execution error (Error) at (<cljs repl>:1).
+function cljs$core$_PLUS_(var_args){
+var G__25638 = arguments.length;
+switch (G__25638) {
+case 0:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$0();
+
+break;
+case 1:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
+
+break;
+case 2:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
+
+break;
+default:
+var args_arr__4757__auto__ = [];
+var len__4736__auto___28815 = arguments.length;
+var i__4737__auto___28816 = (0);
+while(true){
+if((i__4737__auto___28816 < len__4736__auto___28815)){
+args_arr__4757__auto__.push((arguments[i__4737__auto___28816]));
+
+var G__28817 = (i__4737__auto___28816 + (1));
+i__4737__auto___28816 = G__28817;
+continue;
+} else {
+}
+break;
+}
+
+var argseq__4758__auto__ = (new cljs.core.IndexedSeq(args_arr__4757__auto__.slice((2)),(0),null));
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),(arguments[(1)]),argseq__4758__auto__);
+
+}
+} is not ISeqable
 cljs꞉exfn.app꞉> 
 nil
 ; 
-; Execution error (TypeError) at (<cljs repl>:1).
-Cannot read property 'getContext' of null
-cljs꞉exfn.app꞉> 
-[nil nil]
-cljs꞉exfn.app꞉> 
-nil
-; ------ WARNING - :undeclared-var -----------------------------------------------
-;  Resource: <eval>:1:2
- Use of undeclared Var exfn.app/here
---------------------------------------------------------------------------------
-
-cljs꞉exfn.app꞉> 
-here
-
-nil
-cljs꞉exfn.app꞉> 
-"here"
-
-nil
-cljs꞉exfn.app꞉> 
-"here"
-
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-; ------ WARNING - :undeclared-var -----------------------------------------------
-;  Resource: <eval>:1:2
- Use of undeclared Var exfn.app/clear-subscription-cache!
---------------------------------------------------------------------------------
-
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-Point: ( nil , nil ), P1 ( nil , nil ) P2 ( nil , nil )
-
-0
-cljs꞉exfn.app꞉> 
-Point: ( nil , nil ), P1 ( nil , nil ) P2 ( nil , nil )
-
-0
-cljs꞉exfn.app꞉> 
-Point: ( nil , nil ), P1 ( nil , nil ) P2 ( nil , nil )
-
-0
-cljs꞉exfn.app꞉> 
-Point: ( 105 , 163 ), P1 ( 203 , 393 ) P2 ( 63 , 279 )
-
-21028
-cljs꞉exfn.app꞉> 
-Point: ( 110 , 166 ), P1 ( 203 , 393 ) P2 ( 63 , 279 )
-
-21178
-cljs꞉exfn.app꞉> 
-Point: ( 110 , 166 ), P1 ( 203 , 394 ) P2 ( 167 , 311 )
-
-489
-cljs꞉exfn.app꞉> 
-Point: ( 110 , 166 ), P1 ( 203 , 393 ) P2 ( 63 , 279 )
-
-21178
-cljs꞉exfn.app꞉> 
-Point: ( 110 , 166 ), P1 ( 203 , 394 ) P2 ( 167 , 311 )
-
-489
-cljs꞉exfn.app꞉> 
-nil
-; ------ WARNING - :undeclared-var -----------------------------------------------
-;  Resource: <eval>:35:69
- Use of undeclared Var exfn.app/key->?local
---------------------------------------------------------------------------------
-
-; ------ WARNING - :undeclared-var -----------------------------------------------
-;  Resource: <eval>:36:31
- Use of undeclared Var exfn.app/val->?destructure-more
---------------------------------------------------------------------------------
-
-; ------ WARNING - :undeclared-var -----------------------------------------------
-;  Resource: <eval>:43:42
- Use of undeclared Var exfn.app/conjv
---------------------------------------------------------------------------------
-
-; ------ WARNING - :undeclared-var -----------------------------------------------
-;  Resource: <eval>:48:60
- Use of undeclared Var exfn.app/prepare-a-key
---------------------------------------------------------------------------------
-
-; ------ WARNING - :undeclared-ns ------------------------------------------------
-;  Resource: <eval>:67:10
- No such namespace: timbre, could not locate timbre.cljs, timbre.cljc, or JavaScript source providing "timbre"
---------------------------------------------------------------------------------
-
-; ------ WARNING - :undeclared-var -----------------------------------------------
-;  Resource: <eval>:67:10
- Use of undeclared Var timbre/info
---------------------------------------------------------------------------------
-
-cljs꞉exfn.app꞉> 
-8
-cljs꞉exfn.app꞉> 
-31261
-cljs꞉exfn.app꞉> 
-16348
-cljs꞉exfn.app꞉> 
-31261
-cljs꞉exfn.app꞉> 
-{:x 270, :y 270} {:x 91, :y 313} {:x 80, :y 141}
-
-31261
-cljs꞉exfn.app꞉> 
-{:x 270, :y 270} {:x 337, :y 69} {:x 334, :y 322}
-
-16348
-cljs꞉exfn.app꞉> 
-{:x 10, :y 5} {:x 5, :y 1} {:x 5, :y 12}
-
--55
-cljs꞉exfn.app꞉> 
-{:x 2, :y 5} {:x 5, :y 1} {:x 5, :y 12}
-
-33
-cljs꞉exfn.app꞉> 
-{:x 5, :y 5} {:x 5, :y 1} {:x 5, :y 12}
-
-0
-cljs꞉exfn.app꞉> 
-{:x 15, :y 5} {:x 5, :y 1} {:x 5, :y 12}
-
--110
-cljs꞉exfn.app꞉> 
-{:x 5, :y 5}
-
-{:x 2, :y 2} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 2, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 15, :y 5}
-
-{:x 2, :y 2} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 2, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 1, :y 5}
-
-{:x 2, :y 2} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 2, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 4, :y 5}
-
-{:x 2, :y 2} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 2, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 5, :y 5}
-
-{:x 2, :y 2} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 2, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 15, :y 5}
-
-{:x 2, :y 2} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 2, :y 10}
-
-{:x 2, :y 10} {:x 2, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 15, :y 5} {:x 5, :y 1} {:x 5, :y 12}
-
--110
-cljs꞉exfn.app꞉> 
-#'exfn.app/is-left?
-cljs꞉exfn.app꞉> 
-{:x 15, :y 5} {:x 5, :y 1} {:x 5, :y 12}
-
-true
-cljs꞉exfn.app꞉> 
-#'exfn.app/is-left?
-cljs꞉exfn.app꞉> 
-{:x 15, :y 5} {:x 5, :y 1} {:x 5, :y 12}
-
-false
-cljs꞉exfn.app꞉> 
-{:x 3, :y 5} {:x 5, :y 1} {:x 5, :y 12}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 5, :y 5} {:x 5, :y 1} {:x 5, :y 12}
-
-false
-cljs꞉exfn.app꞉> 
-{:x 6, :y 5} {:x 5, :y 1} {:x 5, :y 12}
-
-false
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6}
-
-{:x 5, :y 2} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 10, :y 10}
-
-{:x 10, :y 10} {:x 10, :y 20}
-
-{:x 10, :y 20} {:x 5, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 16, :y 6}
-
-{:x 5, :y 2} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 10, :y 10}
-
-{:x 10, :y 10} {:x 10, :y 20}
-
-{:x 10, :y 20} {:x 5, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 26, :y 6}
-
-{:x 5, :y 2} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 10, :y 10}
-
-{:x 10, :y 10} {:x 10, :y 20}
-
-{:x 10, :y 20} {:x 5, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6}
-
-{:x 5, :y 2} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 10, :y 10}
-
-{:x 10, :y 10} {:x 10, :y 20}
-
-{:x 10, :y 20} {:x 5, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6}
-
-{:x 5, :y 2} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 10, :y 10}
-
-{:x 10, :y 10} {:x 10, :y 20}
-
-{:x 10, :y 20} {:x 5, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-#'exfn.app/is-point-outside?
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6}
-
-{:x 5, :y 2} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 10, :y 10}
-
-{:x 10, :y 10} {:x 10, :y 20}
-
-{:x 10, :y 20} {:x 5, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6}
-
-{:x 5, :y 2} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 10, :y 10}
-
-{:x 10, :y 10} {:x 10, :y 20}
-
-{:x 10, :y 20} {:x 5, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 16, :y 6}
-
-{:x 5, :y 2} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 10, :y 10}
-
-{:x 10, :y 10} {:x 10, :y 20}
-
-{:x 10, :y 20} {:x 5, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6}
-
-{:x 5, :y 2} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 10, :y 10}
-
-{:x 10, :y 10} {:x 10, :y 20}
-
-{:x 10, :y 20} {:x 5, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 6, :y 5} {:x 5, :y 1} {:x 5, :y 12}
-
-false
-cljs꞉exfn.app꞉> 
-{:x 270, :y 270} {:x 337, :y 69} {:x 334, :y 322}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 270, :y 270} {:x 91, :y 313} {:x 80, :y 141}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6}
-
-{:x 5, :y 2} {:x 5, :y 10}
-
-{:x 5, :y 10} {:x 10, :y 10}
-
-{:x 10, :y 10} {:x 10, :y 20}
-
-{:x 10, :y 20} {:x 5, :y 2}
-
-true
-cljs꞉exfn.app꞉> 
-{:x 80, :y 180} {:x 50, :y 170} {:x 60, :y 195}
-
-false
-cljs꞉exfn.app꞉> 
-{:x 210, :y 162} {:x 135, :y 342} {:x 329, :y 95}
-
-false
+; Execution error (Error) at (<cljs repl>:1).
+function cljs$core$_PLUS_(var_args){
+var G__25638 = arguments.length;
+switch (G__25638) {
+case 0:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$0();
+
+break;
+case 1:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
+
+break;
+case 2:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
+
+break;
+default:
+var args_arr__4757__auto__ = [];
+var len__4736__auto___28815 = arguments.length;
+var i__4737__auto___28816 = (0);
+while(true){
+if((i__4737__auto___28816 < len__4736__auto___28815)){
+args_arr__4757__auto__.push((arguments[i__4737__auto___28816]));
+
+var G__28817 = (i__4737__auto___28816 + (1));
+i__4737__auto___28816 = G__28817;
+continue;
+} else {
+}
+break;
+}
+
+var argseq__4758__auto__ = (new cljs.core.IndexedSeq(args_arr__4757__auto__.slice((2)),(0),null));
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),(arguments[(1)]),argseq__4758__auto__);
+
+}
+} is not ISeqable
 cljs꞉exfn.app꞉> 
 nil
 ; 
-; Execution error (TypeError) at (<cljs repl>:1).
-Cannot read property 'call' of undefined
+; Execution error (Error) at (<cljs repl>:1).
+function cljs$core$_PLUS_(var_args){
+var G__25638 = arguments.length;
+switch (G__25638) {
+case 0:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$0();
+
+break;
+case 1:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
+
+break;
+case 2:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
+
+break;
+default:
+var args_arr__4757__auto__ = [];
+var len__4736__auto___28815 = arguments.length;
+var i__4737__auto___28816 = (0);
+while(true){
+if((i__4737__auto___28816 < len__4736__auto___28815)){
+args_arr__4757__auto__.push((arguments[i__4737__auto___28816]));
+
+var G__28817 = (i__4737__auto___28816 + (1));
+i__4737__auto___28816 = G__28817;
+continue;
+} else {
+}
+break;
+}
+
+var argseq__4758__auto__ = (new cljs.core.IndexedSeq(args_arr__4757__auto__.slice((2)),(0),null));
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),(arguments[(1)]),argseq__4758__auto__);
+
+}
+} is not ISeqable
+cljs꞉exfn.app꞉> 
+(8 11 14 17 20)
+cljs꞉exfn.app꞉> 
+70
 cljs꞉exfn.app꞉> 
 nil
 ; 
-; Execution error (TypeError) at (<cljs repl>:1).
-Cannot read property 'call' of undefined
-cljs꞉exfn.app꞉> 
-nil
-; 
-; Execution error (TypeError) at (<cljs repl>:1).
-Cannot read property 'call' of undefined
-cljs꞉exfn.app꞉> 
-nil
-; 
-; Execution error (TypeError) at (<cljs repl>:1).
-Cannot read property 'call' of undefined
-cljs꞉exfn.app꞉> 
-#'exfn.app/det
-cljs꞉exfn.app꞉> 
-31261
-cljs꞉exfn.app꞉> 
-16348
-cljs꞉exfn.app꞉> 
--11
-cljs꞉exfn.app꞉> 
--16395
-cljs꞉exfn.app꞉> 
-19468
-cljs꞉exfn.app꞉> 
--20644
-cljs꞉exfn.app꞉> 
-19468
-cljs꞉exfn.app꞉> 
-20644
-cljs꞉exfn.app꞉> 
-19468
-cljs꞉exfn.app꞉> 
-20644
-cljs꞉exfn.app꞉> 
-19468
-cljs꞉exfn.app꞉> 
--11
-cljs꞉exfn.app꞉> 
-nil
-; ------ WARNING - :fn-arity -----------------------------------------------------
-;  Resource: <eval>:1:1
- Wrong number of args (3) passed to exfn.app/det
---------------------------------------------------------------------------------
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ WARNING - :fn-arity -----------------------------------------------------
-;  Resource: <eval>:1:1
- Wrong number of args (3) passed to exfn.app/det
---------------------------------------------------------------------------------
-
-cljs꞉exfn.app꞉> 
-#'exfn.app/det
-cljs꞉exfn.app꞉> 
-nil
-; ------ WARNING - :fn-arity -----------------------------------------------------
-;  Resource: <eval>:1:1
- Wrong number of args (3) passed to exfn.app/det
---------------------------------------------------------------------------------
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ WARNING - :fn-arity -----------------------------------------------------
-;  Resource: <eval>:1:1
- Wrong number of args (3) passed to exfn.app/det
---------------------------------------------------------------------------------
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ WARNING - :fn-arity -----------------------------------------------------
-;  Resource: <eval>:1:1
- Wrong number of args (3) passed to exfn.app/det
---------------------------------------------------------------------------------
-
-cljs꞉exfn.app꞉> 
-#'exfn.app/det
-cljs꞉exfn.app꞉> 
-nil
-; ------ WARNING - :fn-arity -----------------------------------------------------
-;  Resource: <eval>:1:1
- Wrong number of args (3) passed to exfn.app/det
---------------------------------------------------------------------------------
-
-cljs꞉exfn.app꞉> 
-#'exfn.app/det
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-nil
-cljs꞉exfn.app꞉> 
-#'exfn.app/det
-cljs꞉exfn.app꞉> 
--11
-cljs꞉exfn.app꞉> 
-19468
-cljs꞉exfn.app꞉> 
-20644
-cljs꞉exfn.app꞉> 
--11
-cljs꞉exfn.app꞉> 
-19468
-cljs꞉exfn.app꞉> 
-20644
-cljs꞉exfn.app꞉> 
-#'exfn.app/is-point-outside
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (-)
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (+)
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (+)
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (+ )
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (+ 0)
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (*)
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (*)
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  (let [d (- (* (- (:x p1) (:x r))
-                (- (:y p2) (:y r)))
-             (* (- (:x p2) (:x r))
-                (- (:y p1) (:y r))))]
-    (case (zero? d) 0
-          (pos? d) 1
-          (neg? d) -1)))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  (let [d (- (* (- (:x p1) (:x r))
-                (- (:y p2) (:y r)))
-             (* (- (:x p2) (:x r))
-                (- (:y p1) (:y r))))]
-    (case (zero? d) 0
-          (pos? d) 1
-          (neg? d) -1)))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  (let [d (- (* (- (:x p1) (:x r))
-                (- (:y p2) (:y r)))
-             (* (- (:x p2) (:x r))
-                (- (:y p1) (:y r))))]
-    (case (zero? d) 0
-          (pos? d) 1
-          (neg? d) -1)))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  (let [d (- (* (- (:x p1) (:x r))
-                (- (:y p2) (:y r)))
-             (* (- (:x p2) (:x r))
-                (- (:y p1) (:y r))))]
-    (case (zero? d) 0
-          (pos? d) 1
-          (neg? d) -1)))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  (let [d (- (* (- (:x p1) (:x r))
-                (- (:y p2) (:y r)))
-             (* (- (:x p2) (:x r))
-                (- (:y p1) (:y r))))]
-    (case (zero? d) 0
-          (pos? d) 1
-          (neg? d) -1)))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  (let [d (- (* (- (:x p1) (:x r))
-                (- (:y p2) (:y r)))
-             (* (- (:x p2) (:x r))
-                (- (:y p1) (:y r))))]
-    (case (zero? d) 0
-          (pos? d) 1
-          (neg? d) -1)))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  (let [d (- (* (- (:x p1) (:x r))
-                (- (:y p2) (:y r)))
-             (* (- (:x p2) (:x r))
-                (- (:y p1) (:y r))))]
-    (case (zero? d) 0
-          (pos? d) 1
-          (neg? d) -1)))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  (let [d (- (* (- (:x p1) (:x r))
-                (- (:y p2) (:y r)))
-             (* (- (:x p2) (:x r))
-                (- (:y p1) (:y r))))]
-    (dond (zero? d) 0
-          (pos? d) 1
-          (neg? d) -1)))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  (let [d (- (* (- (:x p1) (:x r))
-                (- (:y p2) (:y r)))
-             (* (- (:x p2) (:x r))
-                (- (:y p1) (:y r))))]
-    (cond (zero? d) 0
-          (pos? d) 1
-          (neg? d) -1)))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  (let [d (- (* (- (:x p1) (:x r))
-                (- (:y p2) (:y r)))
-             (* (- (:x p2) (:x r))
-                (- (:y p1) (:y r))))]
-    (cond (zero? d) 0
-          (pos? d) 1
-          (neg? d) -1)))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  )
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn det [r p1 p2]
-  )
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn is-left [r p1 p2]
-  )
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn foo [x] (+ x 5))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn foo [x] (+ x 5))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn foo [x] (+ x 5))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn foo [x] (+ x 5))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn foo [x] (+ x 5))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn foo [x] (+ x 5))
-no source by provide: exfn.app
-{:provide exfn.app}
-ExceptionInfo: no source by provide: exfn.app
-	shadow.build.data/get-source-id-by-provide (data.clj:186)
-	shadow.build.data/get-source-id-by-provide (data.clj:183)
-	shadow.build.data/get-source-by-provide (data.clj:189)
-	shadow.build.data/get-source-by-provide (data.clj:188)
-	shadow.cljs.repl/repl-compile/fn--14658/fn--14659 (repl.clj:459)
-	shadow.cljs.repl/repl-compile/fn--14658 (repl.clj:435)
-	shadow.cljs.repl/repl-compile (repl.clj:433)
-	shadow.cljs.repl/repl-compile (repl.clj:430)
-	shadow.cljs.repl/process-read-result (repl.clj:521)
-	shadow.cljs.repl/process-read-result (repl.clj:497)
-	shadow.cljs.repl/process-input (repl.clj:681)
-	shadow.cljs.repl/process-input (repl.clj:659)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:754)
-	shadow.cljs.devtools.server.worker.impl/fn--15187 (impl.clj:744)
-	clojure.lang.MultiFn.invoke (MultiFn.java:234)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851/fn--14859 (util.clj:284)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850/fn--14851 (util.clj:283)
-	shadow.cljs.devtools.server.util/server-thread/fn--14850 (util.clj:256)
-	java.lang.Thread.run (Thread.java:832)
-
-cljs꞉exfn.app꞉> 
-#'exfn.app/foo
-cljs꞉exfn.app꞉> 
-#'exfn.app/det
-cljs꞉exfn.app꞉> 
-nil
-; ------ WARNING - :undeclared-var -----------------------------------------------
-;  Resource: <eval>:3:24
- Use of undeclared Var exfn.app/calculate-w
---------------------------------------------------------------------------------
-
-cljs꞉exfn.app꞉> 
-#'exfn.app/calculate-w
-cljs꞉exfn.app꞉> 
-#'exfn.app/is-point-inside?
-cljs꞉exfn.app꞉> 
-#'exfn.app/is-point-inside?
-cljs꞉exfn.app꞉> 
-#'exfn.app/det
-cljs꞉exfn.app꞉> 
-#'exfn.app/is-point-inside?
-cljs꞉exfn.app꞉> 
-#'exfn.app/w
-cljs꞉exfn.app꞉> 
-false
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-#'exfn.app/is-point-outside?
-cljs꞉exfn.app꞉> 
-nil
-; ------ REPL Error while processing ---------------------------------------------
-; (defn calculate-w [r v1 v2]
-  (if (<= (:y v1) (:y r))
-    
-    )
-  )
-Error in phase :compile-syntax-check
-RuntimeException: Too few arguments to if
-	cljs.analyzer/compile-syntax-error (analyzer.cljc:755)
-	cljs.analyzer/compile-syntax-error (analyzer.cljc:753)
-	cljs.analyzer/fn--1832 (analyzer.cljc:1673)
-	cljs.analyzer/fn--1832 (analyzer.cljc:1670)
-	clojure.lang.MultiFn.invoke (MultiFn.java:252)
-	cljs.analyzer/analyze-seq* (analyzer.cljc:3974)
-	cljs.analyzer/analyze-seq* (analyzer.cljc:3972)
-	cljs.analyzer/analyze-seq*-wrap (analyzer.cljc:3979)
-	cljs.analyzer/analyze-seq*-wrap (analyzer.cljc:3977)
-	cljs.analyzer/analyze-seq (analyzer.cljc:4003)
-	cljs.analyzer/analyze-seq (analyzer.cljc:3981)
-	cljs.analyzer/analyze-form (analyzer.cljc:4190)
-	cljs.analyzer/analyze-form (analyzer.cljc:4187)
-	cljs.analyzer/analyze* (analyzer.cljc:4243)
-	cljs.analyzer/analyze* (analyzer.cljc:4235)
-	cljs.analyzer/analyze (analyzer.cljc:4263)
-	cljs.analyzer/analyze (analyzer.cljc:4246)
-	cljs.analyzer/analyze (analyzer.cljc:4256)
-	cljs.analyzer/analyze (analyzer.cljc:4246)
-	cljs.analyzer/analyze (analyzer.cljc:4254)
-	cljs.analyzer/analyze (analyzer.cljc:4246)
-	cljs.analyzer/fn--2025 (analyzer.cljc:2276)
-	cljs.analyzer/fn--2025 (analyzer.cljc:2272)
-	clojure.lang.MultiFn.invoke (MultiFn.java:252)
-	cljs.analyzer/analyze-seq* (analyzer.cljc:3974)
-	cljs.analyzer/analyze-seq* (analyzer.cljc:3972)
-	cljs.analyzer/analyze-seq*-wrap (analyzer.cljc:3979)
-	cljs.analyzer/analyze-seq*-wrap (analyzer.cljc:3977)
-	cljs.analyzer/analyze-seq (analyzer.cljc:4003)
-	cljs.analyzer/analyze-seq (analyzer.cljc:3981)
-	cljs.analyzer/analyze-form (analyzer.cljc:4190)
-	cljs.analyzer/analyze-form (analyzer.cljc:4187)
-	cljs.analyzer/analyze* (analyzer.cljc:4243)
-	cljs.analyzer/analyze* (analyzer.cljc:4235)
-	cljs.analyzer/analyze (analyzer.cljc:4263)
-	cljs.analyzer/analyze (analyzer.cljc:4246)
-	cljs.analyzer/analyze (analyzer.cljc:4256)
-	cljs.analyzer/analyze (analyzer.cljc:4246)
-	cljs.analyzer/analyze (analyzer.cljc:4254)
-	cljs.analyzer/analyze (analyzer.cljc:4246)
-	cljs.analyzer/analyze-fn-method-body (analyzer.cljc:2065)
-	cljs.analyzer/analyze-fn-method-body (analyzer.cljc:2063)
-	cljs.analyzer/analyze-fn-method (analyzer.cljc:2087)
-	cljs.analyzer/analyze-fn-method (analyzer.cljc:2067)
-	cljs.analyzer/analyze-fn-methods-pass2*/fn--1981 (analyzer.cljc:2125)
-	clojure.core/mapv/fn--8445 (core.clj:6912)
-	clojure.core.protocols/fn--8159 (protocols.clj:168)
-	clojure.core.protocols/fn--8159 (protocols.clj:124)
-	clojure.core.protocols/fn--8114/G--8109--8123 (protocols.clj:19)
-	clojure.core.protocols/seq-reduce (protocols.clj:31)
-	clojure.core.protocols/fn--8144 (protocols.clj:75)
-	clojure.core.protocols/fn--8144 (protocols.clj:75)
-	clojure.core.protocols/fn--8088/G--8083--8101 (protocols.clj:13)
-	clojure.core/reduce (core.clj:6828)
-	clojure.core/mapv (core.clj:6903)
-	clojure.core/mapv (core.clj:6903)
-	cljs.analyzer/analyze-fn-methods-pass2* (analyzer.cljc:2125)
-	cljs.analyzer/analyze-fn-methods-pass2* (analyzer.cljc:2124)
-	cljs.analyzer/analyze-fn-methods-pass2 (analyzer.cljc:2128)
-	cljs.analyzer/analyze-fn-methods-pass2 (analyzer.cljc:2127)
-	cljs.analyzer/fn--1987/fn--1993 (analyzer.cljc:2176)
-	cljs.analyzer/fn--1987 (analyzer.cljc:2176)
-	cljs.analyzer/fn--1987 (analyzer.cljc:2130)
-	clojure.lang.MultiFn.invoke (MultiFn.java:252)
-	cljs.analyzer/analyze-seq* (analyzer.cljc:3974)
-	cljs.analyzer/analyze-seq* (analyzer.cljc:3972)
-	cljs.analyzer/analyze-seq*-wrap (analyzer.cljc:3979)
-	cljs.analyzer/analyze-seq*-wrap (analyzer.cljc:3977)
-	cljs.analyzer/analyze-seq (analyzer.cljc:4003)
-	cljs.analyzer/analyze-seq (analyzer.cljc:3981)
-	cljs.analyzer/analyze-form (analyzer.cljc:4190)
-	cljs.analyzer/analyze-form (analyzer.cljc:4187)
-	cljs.analyzer/analyze* (analyzer.cljc:4243)
-	cljs.analyzer/analyze* (analyzer.cljc:4235)
-	cljs.analyzer/analyze (analyzer.cljc:4263)
-	cljs.analyzer/analyze (analyzer.cljc:4246)
-	cljs.analyzer/analyze-seq (analyzer.cljc:4004)
-	cljs.analyzer/analyze-seq (analyzer.cljc:3981)
-	cljs.analyzer/analyze-form (analyzer.cljc:4190)
-	cljs.analyzer/analyze-form (analyzer.cljc:4187)
-
-cljs꞉exfn.app꞉> 
-#'exfn.app/calculate-w
-cljs꞉exfn.app꞉> 
-#'exfn.app/det
-cljs꞉exfn.app꞉> 
-#'exfn.app/is-point-outside?
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-#'exfn.app/is-point-outside?
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-#'exfn.app/calculate-w
-cljs꞉exfn.app꞉> 
-#'exfn.app/det
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-#'exfn.app/det
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6} {:x 5, :y 2} {:x 5, :y 10}
-
--1
-cljs꞉exfn.app꞉> 
-{:x 1, :y 6} {:x 5, :y 2} {:x 5, :y 10}
-
-1
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6} {:x 5, :y 2} {:x 5, :y 10}
-
--1
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6} {:x 5, :y 10} {:x 5, :y 2}
+; Execution error (Error) at (<cljs repl>:1).
+function cljs$core$_PLUS_(var_args){
+var G__25638 = arguments.length;
+switch (G__25638) {
+case 0:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$0();
 
-1
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6} {:x 5, :y 10} {:x 5, :y 2}
-
-1
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6} {:x 5, :y 2} {:x 5, :y 10}
+break;
+case 1:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
--1
-cljs꞉exfn.app꞉> 
-#'exfn.app/det
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6} {:x 5, :y 2} {:x 5, :y 10}
+break;
+case 2:
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
--8
-cljs꞉exfn.app꞉> 
-#'exfn.app/calculate-w
-cljs꞉exfn.app꞉> 
-#'exfn.app/is-point-outside?
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-true
-cljs꞉exfn.app꞉> 
-{:x 6, :y 6} {:x 5, :y 2} {:x 5, :y 10}
+break;
+default:
+var args_arr__4757__auto__ = [];
+var len__4736__auto___28815 = arguments.length;
+var i__4737__auto___28816 = (0);
+while(true){
+if((i__4737__auto___28816 < len__4736__auto___28815)){
+args_arr__4757__auto__.push((arguments[i__4737__auto___28816]));
 
--8
-cljs꞉exfn.app꞉> 
-#'exfn.app/calculate-w
-cljs꞉exfn.app꞉> 
-[{:x 5, :y 2} {:x 5, :y 10} {:x 10, :y 10} {:x 10, :y 2} {:x 5, :y 2}] [:x 6] [:y 6]
+var G__28817 = (i__4737__auto___28816 + (1));
+i__4737__auto___28816 = G__28817;
+continue;
+} else {
+}
+break;
+}
 
-true
-cljs꞉exfn.app꞉> 
-#'exfn.app/calculate-w
-cljs꞉exfn.app꞉> 
-[{:x 5, :y 2} {:x 5, :y 10} {:x 10, :y 10} {:x 10, :y 2} {:x 5, :y 2}] [:x 6] [:y 6]
+var argseq__4758__auto__ = (new cljs.core.IndexedSeq(args_arr__4757__auto__.slice((2)),(0),null));
+return cljs.core._PLUS_.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),(arguments[(1)]),argseq__4758__auto__);
 
-true
+}
+} is not ISeqable
 cljs꞉exfn.app꞉> 
-#'exfn.app/calculate-w
+45
 cljs꞉exfn.app꞉> 
-true
+45
 cljs꞉exfn.app꞉> 
-#'exfn.app/calculate-w
+45
 cljs꞉exfn.app꞉> 
-#'exfn.app/calculate-w
+45
 cljs꞉exfn.app꞉> 
-[{:x 5, :y 2} {:x 5, :y 10} {:x 10, :y 10} {:x 10, :y 2} {:x 5, :y 2}] [:x 6] [:y 6]
-
-true
+18
 cljs꞉exfn.app꞉> 
-#'exfn.app/calculate-w
-cljs꞉exfn.app꞉> 
-( nil , nil ) [:x 6] [:y 6]
-
-true
+18
 cljs꞉exfn.app꞉> 
-nil
-; ------ WARNING - :fn-arity -----------------------------------------------------
-;  Resource: <eval>:1:1
- Wrong number of args (1) passed to exfn.app/is-point-outside?
---------------------------------------------------------------------------------
-
+18
 cljs꞉exfn.app꞉> 
-( 6 , 6 ) {:x 5, :y 2} {:x 5, :y 10}
-
-{:x 6, :y 6} {:x 5, :y 2} {:x 5, :y 10}
-
-( 6 , 6 ) {:x 5, :y 10} {:x 10, :y 10}
-
-( 6 , 6 ) {:x 10, :y 10} {:x 10, :y 2}
-
-{:x 6, :y 6} {:x 10, :y 10} {:x 10, :y 2}
-
-( 6 , 6 ) {:x 10, :y 2} {:x 5, :y 2}
-
-false
+6
 cljs꞉exfn.app꞉> 
-( 16 , 6 ) {:x 5, :y 2} {:x 5, :y 10}
-
-{:x 16, :y 6} {:x 5, :y 2} {:x 5, :y 10}
-
-( 16 , 6 ) {:x 5, :y 10} {:x 10, :y 10}
-
-( 16 , 6 ) {:x 10, :y 10} {:x 10, :y 2}
-
-{:x 16, :y 6} {:x 10, :y 10} {:x 10, :y 2}
-
-( 16 , 6 ) {:x 10, :y 2} {:x 5, :y 2}
-
-true
+36
 cljs꞉exfn.app꞉> 
-( 213 , 279 ) {:x 95, :y 377} {:x 96, :y 182}
-
-( 213 , 279 ) {:x 96, :y 182} {:x 400, :y 178}
-
-( 213 , 279 ) {:x 400, :y 178} {:x 413, :y 372}
-
-( 213 , 279 ) {:x 413, :y 372} {:x 94, :y 377}
-
-( 213 , 279 ) {:x 94, :y 377} {:x 95, :y 377}
-
-false
+("(1 2)undefined" "(2 3)undefined" "(3 4)undefined" "(4 5)undefined" "(5 6)undefined" "(6 7)undefined" "(7 8)undefined" "(8 9)undefined" "(9 10)undefined")
 cljs꞉exfn.app꞉> 
-( 213 , 279 ) {:x 95, :y 377} {:x 96, :y 182}
-
-( 213 , 279 ) {:x 96, :y 182} {:x 400, :y 178}
-
-( 213 , 279 ) {:x 400, :y 178} {:x 413, :y 372}
-
-( 213 , 279 ) {:x 413, :y 372} {:x 94, :y 377}
-
-( 213 , 279 ) {:x 94, :y 377} {:x 95, :y 377}
-
-( 213 , 279 ) {:x 95, :y 377} {:x 95, :y 377}
-
-false
+("(1)undefined" "(3)undefined" "(5)undefined" "(7)undefined" "(9)undefined")
 cljs꞉exfn.app꞉> 
-( 213 , 279 ) {:x 95, :y 377} {:x 96, :y 182}
-
-( 213 , 279 ) {:x 96, :y 182} {:x 400, :y 178}
-
-( 213 , 279 ) {:x 400, :y 178} {:x 413, :y 372}
-
-( 213 , 279 ) {:x 413, :y 372} {:x 94, :y 377}
-
-( 213 , 279 ) {:x 94, :y 377} {:x 95, :y 377}
-
-false
+((1) (3) (5) (7) (9))
 cljs꞉exfn.app꞉> 
-( 243 , 142 ) {:x 95, :y 377} {:x 96, :y 182}
-
-( 243 , 142 ) {:x 96, :y 182} {:x 400, :y 178}
-
-( 243 , 142 ) {:x 400, :y 178} {:x 413, :y 372}
-
-( 243 , 142 ) {:x 413, :y 372} {:x 94, :y 377}
-
-( 243 , 142 ) {:x 94, :y 377} {:x 95, :y 377}
-
-true
+((1 2) (2 3) (3 4) (4 5) (5 6) (6 7) (7 8) (8 9) (9 10) (10))
 cljs꞉exfn.app꞉> 
-( 234 , 308 ) {:x 95, :y 377} {:x 96, :y 182}
-
-( 234 , 308 ) {:x 96, :y 182} {:x 400, :y 178}
-
-( 234 , 308 ) {:x 400, :y 178} {:x 413, :y 372}
-
-( 234 , 308 ) {:x 413, :y 372} {:x 94, :y 377}
-
-( 234 , 308 ) {:x 94, :y 377} {:x 95, :y 377}
-
-false
+(3 5 7 9 11 13 15 17 19 10)
 cljs꞉exfn.app꞉> 
