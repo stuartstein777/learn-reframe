@@ -64,12 +64,12 @@
   (set! (.-lineWidth ctx) 2.0)
   (set! (.-strokeStyle ctx) "black")
   (.beginPath ctx)
-  (when should-fill
-    (set! (.-fillStyle ctx) "yellow"))
   (dorun (map (fn [{:keys [x y]}]
                 (.lineTo ctx x y)) points))
   (.stroke ctx)
-  (.fill ctx))
+  (when should-fill
+    (set! (.-fillStyle ctx) "yellow")
+    (.fill ctx)))
 
 (rf/reg-fx
  :draw-canvas
@@ -144,16 +144,16 @@
 ;; make undo-stack equal to popping undo-stack
 ;; push points tp redo-stack
 (rf/reg-event-fx
-  :undo
-  (fn [{:keys [db]} _]
-    (if (empty? (:undo-stack db))
-      {:db db}
-      (let [last-dropped (vec (butlast (db :points)))]
-        {:db          (-> db
-                          (assoc :points last-dropped)
-                          (update :undo-stack pop)
-                          (update :redo-stack conj (db :points)))
-         :draw-canvas [last-dropped (:point db) (:should-fill db)]}))))
+ :undo
+ (fn [{:keys [db]} _]
+   (if (empty? (:undo-stack db))
+     {:db db}
+     (let [last-dropped (vec (butlast (db :points)))]
+       {:db          (-> db
+                         (assoc :points last-dropped)
+                         (update :undo-stack pop)
+                         (update :redo-stack conj (db :points)))
+        :draw-canvas [last-dropped (:point db) (:should-fill db)]}))))
 
 (rf/reg-event-fx
  :redo
@@ -233,7 +233,7 @@
    [:button.btn.btn-primary
     {:on-click #(rf/dispatch [:undo])}
     "Undo"]
-    [:button.btn.btn-primary
+   [:button.btn.btn-primary
     {:on-click #(rf/dispatch [:redo])}
     "Redo"]])
 
@@ -251,7 +251,7 @@
 (comment (rf/dispatch-sync [:initialize]))
 (comment (rf/dispatch-sync [:reset-boundary]))
 (comment (rf/dispatch [:update-canvas]))
-(rf/dispatch [:update-canvas])
+(comment (rf/dispatch [:update-canvas]))
 ;only here for debugging / dev / testing.
 
 ;; -- After-Load --------------------------------------------------------------------
@@ -266,3 +266,4 @@
   (start))
 
 (defonce initialize (rf/dispatch-sync [:initialize]))       ; dispatch the event which will create the initial state. 
+
