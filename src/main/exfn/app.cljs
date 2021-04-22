@@ -65,6 +65,7 @@
   (set! (.-strokeStyle ctx) "black")
   (.beginPath ctx)
   (dorun (map (fn [{:keys [x y]}]
+                (.arc ctx x y 1 0 (* 2 (.-PI js/Math)) 1)
                 (.lineTo ctx x y)) points))
   (.stroke ctx)
   (when should-fill
@@ -80,7 +81,7 @@
      (clear-canvas canvas ctx)
      (draw-boundary ctx points should-fill)
      (draw-selected-point ctx x y)
-     (draw-guides ctx points x y))))
+     #_(draw-guides ctx points x y))))
 
 (rf/reg-event-fx
  :update-canvas
@@ -97,7 +98,7 @@
      (let [updated-points (conj (db :points) xy)]
        {:db          (-> db
                          (assoc :points updated-points)
-                         (assoc :location "Requires Calculation")
+                         (assoc :location (if (is-point-outside? (db :point) updated-points) "Outside" "Inside"))
                          (assoc :redo-stack [])
                          (update :undo-stack conj (db :points)))
         :draw-canvas [updated-points (:point db) (db :should-fill)]})
@@ -106,10 +107,8 @@
      (= :selecting-point (db :current-action))
      {:db          (-> db
                        (assoc :point xy)
-                       (assoc :location "Requires Calculation"))
+                       (assoc :location (if (is-point-outside? xy (db :points)) "Outside" "Inside")))
       :draw-canvas [(:points db) xy (db :should-fill)]})))
-
-
 
 (rf/reg-event-fx
  :reset-boundary
@@ -117,6 +116,7 @@
    {:draw-canvas [[] (:point db) (:should-fill db)]
     :db          (-> db
                      (assoc :points [])
+                     (assoc :location "Outside")
                      (update :undo-stack conj (db :points))
                      (assoc :current-action :drawing-boundary))}))
 
@@ -151,6 +151,7 @@
      (let [last-dropped (vec (butlast (db :points)))]
        {:db          (-> db
                          (assoc :points last-dropped)
+                         (assoc :location (if (is-point-outside? (db :point) last-dropped) "Outside" "Inside"))
                          (update :undo-stack pop)
                          (update :redo-stack conj (db :points)))
         :draw-canvas [last-dropped (:point db) (:should-fill db)]}))))
@@ -165,6 +166,7 @@
            new-redo (pop (:redo-stack db))]
        {:db          (-> db
                          (assoc :points new-points)
+                         (assoc :location (if (is-point-outside? (db :point) new-points) "Outside" "Inside"))
                          (assoc :redo-stack new-redo)
                          (assoc :undo-stack new-undo))
         :draw-canvas [new-points (:point db) (:should-fill db)]}))))
@@ -224,9 +226,6 @@
     [:button.btn.btn-danger
      {:on-click #(rf/dispatch [:reset-boundary])}
      "Reset boundary"]]
-   [:button.btn.btn-success
-    {:on-click #(rf/dispatch [:calculate])}
-    "Calculate"]
    [:button.btn.btn-primary
     {:on-click #(rf/dispatch [:toggle-fill])}
     "Toggle fill"]
@@ -246,12 +245,13 @@
   [:div.container
    [point-canvas]
    [location]
-   [buttons]])
+   [buttons]
+   [:p "When calculating the point the algorithm will automatically close the polygon (i.e. make the last point = the first point), which is why it may
+        make it look like its inside while you are drawing."]])
 
 (comment (rf/dispatch-sync [:initialize]))
 (comment (rf/dispatch-sync [:reset-boundary]))
-(comment (rf/dispatch [:update-canvas]))
-(comment (rf/dispatch [:update-canvas]))
+(rf/dispatch [:update-canvas])
 ;only here for debugging / dev / testing.
 
 ;; -- After-Load --------------------------------------------------------------------
