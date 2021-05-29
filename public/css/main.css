@@ -6,15 +6,8 @@ body{
     margin:10px;
 }
 
-.canvas {
-    border: 3px black solid;
-}
 
-.result {
-    border: 2px black solid;
-    background-color:yellow;
-}
-
-.btn{
-    margin: 10px;
+.letter {
+    padding: 5px;
+    margin: 5px;
 }
