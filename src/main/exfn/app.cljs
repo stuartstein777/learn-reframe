@@ -4,6 +4,11 @@
             [goog.string.format]
             [clojure.set :as set]))
 
+
+;; npm install
+;; npx shadow-cljs watch app
+;; connect to browser
+;; connect to repl
 ;; -- Helpers ------------------------------------------------------------------------------------
 (defn check [letters words]
   (let [letters (set letters)]
